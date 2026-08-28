@@ -112,11 +112,29 @@ export function activityOptions(gl, weightKg) {
 
 // ── 음식 검색 / 미등록 음식 처리 ────────────────────────────────
 
-/** 부분 일치 검색 */
+// 사람들이 흔히 쓰는 말 → 식약처 표기
+const SYNONYMS = {
+  오뎅: "어묵", 계란: "달걀", 삐아: "피자", 짜장: "자장",
+  아아: "아메리카노", 아메: "아메리카노", 라떼: "우유",
+  돈까스: "돈가스", 팟타이: "쌀국수", 후라이드: "닭튀김",
+  치맥: "닭튀김", 소맥: "맥주", 붕어빵: "호떡",
+};
+
+/**
+ * 부분 일치 검색.
+ * 항목이 1,400개가 넘어 순서가 중요해졌다.
+ * 정확히 같은 이름 → 이름이 검색어로 시작 → 그 외 포함 순으로 정렬하고,
+ * 같은 순위 안에서는 이름이 짧은(= 더 일반적인) 것을 앞에 둔다.
+ */
 export function searchFoods(query) {
-  const q = query.trim();
-  if (!q) return [];
-  return foodDB.foods.filter((f) => f.name.includes(q));
+  const raw = query.trim();
+  if (!raw) return [];
+  const q = SYNONYMS[raw] || raw;
+
+  const rank = (name) => (name === q ? 0 : name.startsWith(q) ? 1 : 2);
+  return foodDB.foods
+    .filter((f) => f.name.includes(q))
+    .sort((a, b) => rank(a.name) - rank(b.name) || a.name.length - b.name.length);
 }
 
 export const CATEGORIES = foodDB.categories;
