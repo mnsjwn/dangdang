@@ -1,0 +1,15 @@
+node_modules/
+dist/
+
+# Apps Script 배포 URL이 들어있음 — 저장소에 올리지 않는다
+# (빌드 결과물 dist/ 에도 인라인되므로 dist/ 도 함께 제외)
+.env
+.env.local
+
+# 공공데이터 원본 CSV (용량 큼, 빌드 결과인 data/*.json만 있으면 됨)
+data/raw/*.csv
+
+# 로컬 개발 도구 (에이전트 스킬) — 프로젝트 코드가 아님
+.agents/
+.claude/
+skills-lock.json

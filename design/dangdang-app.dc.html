@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics=""><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap" rel="stylesheet"><style>
+body{margin:0;background:#F7F7F6;font-family:'Noto Sans KR',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DE5232;text-decoration:none}a:hover{color:#B93E22}
+*{font-family:'Noto Sans KR',system-ui,sans-serif}
+input,button{font-family:inherit}
+@keyframes dd-spin{to{transform:rotate(360deg)}}
+@keyframes dd-pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes dd-pop{0%{transform:scale(.85);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes dd-rise{0%{transform:translateY(14px);opacity:0}100%{transform:translateY(0);opacity:1}}
+@keyframes dd-bar{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+@keyframes dd-stamp{0%{transform:rotate(-9deg) scale(1.5);opacity:0}55%{transform:rotate(-9deg) scale(.94);opacity:1}80%{transform:rotate(-9deg) scale(1.04)}100%{transform:rotate(-9deg) scale(1)}}
+@keyframes dd-ring{0%{stroke-dashoffset:590.6}100%{stroke-dashoffset:var(--dd-off)}}
+@keyframes dd-grow{0%{transform:scaleY(0)}100%{transform:scaleY(1)}}
+@keyframes dd-sheet{0%{transform:translateY(14px);opacity:0}100%{transform:translateY(0);opacity:1}}
+@keyframes dd-fade{0%{opacity:0}100%{opacity:1}}
+@keyframes dd-ob-ring{0%{stroke-dashoffset:515.2}100%{stroke-dashoffset:150}}
+</style></helmet>
+
+<div style="display:flex;gap:44px;align-items:flex-start;padding:40px 44px 56px;min-height:100vh;box-sizing:border-box">
+
+  <div style="width:262px;flex:none;position:sticky;top:40px;display:flex;flex-direction:column;gap:22px">
+    <div>
+      <div style="font-size:30px;font-weight:900;letter-spacing:-1px;color:#1A1512;line-height:1">당당</div>
+      <div style="margin-top:7px;font-size:12.5px;line-height:1.6;color:#7A6C63;font-weight:500">식후 졸음 잡는 혈당 코칭 앱<br>iOS 402×874 · 인터랙티브 프로토타입</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:5px">
+      <div style="font:700 10.5px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#A0938A;margin-bottom:5px">SCREENS</div>
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="10">
+        <div onClick="{{ item.onClick }}" style="display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;cursor:pointer;background:{{ item.bg }};color:{{ item.fg }};font-size:13px;font-weight:{{ item.fw }};transition:background .16s" style-hover="background:{{ item.hover }}">
+          <span style="font:700 10px/1 ui-monospace,Menlo,monospace;opacity:.6;width:14px">{{ item.num }}</span>
+          <span>{{ item.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="border-top:1px solid rgba(26,21,18,.1);padding-top:16px;font-size:11.5px;line-height:1.75;color:#8A7C73">
+      <div style="font-weight:700;color:#5C5048;margin-bottom:6px">디자인 결정</div>
+      밝은 웜 그레이 배경 · 포인트 코랄 <span style="color:#DE5232;font-weight:700">#DE5232</span> · 마스코트/배지/경쟁 요소 없음 · 아바타는 고정 회색 실루엣 · 졸음 위험 게이지와 원형 타이머 링만 시각적 주인공
+    </div>
+  </div>
+
+  <div style="flex:none;filter:drop-shadow(0 30px 60px rgba(60,40,30,.18))">
+  <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+
+    <sc-if value="{{ isSplash }}">
+      <div onClick="{{ goOnboard }}" style="min-height:100%;height:100%;box-sizing:border-box;background:#FFFFFF;padding:0 26px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer">
+        <div style="animation:dd-pop .5s cubic-bezier(.2,.8,.2,1) both">
+          <div style="font-size:76px;font-weight:900;letter-spacing:-4.5px;color:#1A1512;line-height:.9;text-align:center">당당</div>
+          <div style="margin-top:14px;height:6px;border-radius:3px;background:#DE5232;transform-origin:left center;animation:dd-bar .7s .25s cubic-bezier(.2,.8,.2,1) both"></div>
+        </div>
+        <div style="margin-top:18px;font-size:14.5px;font-weight:700;color:#7A6C63;text-align:center;line-height:1.6;animation:dd-rise .6s .45s ease-out both">밥 먹고 졸리지 않는 오후</div>
+        <div style="position:absolute;left:0;right:0;bottom:52px;display:flex;flex-direction:column;align-items:center;gap:10px;animation:dd-rise .6s .7s ease-out both">
+          <div style="display:flex;gap:5px">
+            <span style="width:6px;height:6px;border-radius:50%;background:#DE5232;animation:dd-pulse 1.2s ease-in-out infinite"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#DE5232;animation:dd-pulse 1.2s .2s ease-in-out infinite"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#DE5232;animation:dd-pulse 1.2s .4s ease-in-out infinite"></span>
+          </div>
+          
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isOnboard }}">
+      <div style="min-height:100%;height:100%;box-sizing:border-box;background:#FFFFFF;padding:62px 26px 34px;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div style="display:flex;gap:6px">
+            <sc-for list="{{ obDots }}" as="item" hint-placeholder-count="3">
+              <span style="width:{{ item.w }};height:6px;border-radius:3px;background:{{ item.bg }};transition:all .25s"></span>
+            </sc-for>
+          </div>
+          <div onClick="{{ skipOnboard }}" style="font-size:13px;font-weight:700;color:#9C918A;cursor:pointer;padding:6px 2px">건너뛰기</div>
+        </div>
+
+        <div key="{{ obKey }}" style="display:flex;flex-direction:column;flex:1">
+        <div style="margin-top:52px;font-size:12px;font-weight:900;letter-spacing:.14em;color:#DE5232;animation:dd-rise .42s .02s ease-out both">{{ obStep }}</div>
+        <div style="margin-top:10px;font-size:30px;font-weight:900;letter-spacing:-1.4px;color:#1A1512;line-height:1.3;white-space:pre-line;animation:dd-rise .48s .08s ease-out both">{{ obTitle }}</div>
+        <div style="margin-top:14px;font-size:15px;font-weight:500;line-height:1.7;color:#6E6058;white-space:pre-line;animation:dd-rise .48s .16s ease-out both">{{ obBody }}</div>
+
+        <div style="margin-top:34px;flex:1;display:flex;align-items:center;justify-content:center;animation:dd-rise .55s .24s ease-out both">
+          <sc-if value="{{ obIsFood }}" hint-placeholder-val="{{ true }}">
+            <div style="width:100%;display:flex;flex-direction:column;gap:9px">
+              <div style="height:50px;border-radius:13px;background:#F6F4F1;border:1px solid rgba(26,21,18,.18);display:flex;align-items:center;gap:10px;padding:0 15px">
+                <div style="width:14px;height:14px;border-radius:50%;border:2px solid #A0938A"></div>
+                <span style="font-size:14.5px;font-weight:500;color:#9C918A">김치찌개</span>
+              </div>
+              <div style="height:58px;border-radius:14px;background:#FDF2ED;border:1px solid rgba(200,88,56,.28);display:flex;align-items:center;justify-content:space-between;padding:0 16px">
+                <span style="font-size:15px;font-weight:700;color:#1A1512">흰쌀밥 1공기</span>
+                <span style="font-size:13px;font-weight:700;color:#8A7C73">1인분</span>
+              </div>
+              <div style="height:58px;border-radius:14px;background:#EDF3EF;border:1px solid rgba(46,102,74,.24);display:flex;align-items:center;justify-content:space-between;padding:0 16px">
+                <span style="font-size:15px;font-weight:700;color:#1A1512">김치찌개</span>
+                <span style="font-size:13px;font-weight:700;color:#8A7C73">1인분</span>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ obIsGauge }}">
+            <div style="width:100%;display:flex;flex-direction:column;align-items:center">
+            <div style="position:relative;width:196px;height:196px">
+              <svg width="196" height="196" viewBox="0 0 196 196">
+                <circle cx="98" cy="98" r="82" fill="none" stroke="#F0EFEE" stroke-width="16"></circle>
+                <circle cx="98" cy="98" r="82" fill="none" stroke="#DE5232" stroke-width="16" stroke-linecap="round" stroke-dasharray="515.2" stroke-dashoffset="150" transform="rotate(-90 98 98)" style="animation:dd-ob-ring 1.15s .34s cubic-bezier(.22,.9,.24,1) both"></circle>
+              </svg>
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+                <div style="font-size:11px;font-weight:700;color:#A0938A">식후 졸음 위험</div>
+                <div style="font-size:34px;font-weight:900;letter-spacing:-1.4px;color:#DE5232;animation:dd-pop .4s 1.16s cubic-bezier(.2,1.1,.3,1) both">높아요</div>
+              </div>
+            </div>
+            <div style="margin-top:16px;width:100%;border-radius:15px;background:#EDF3EF;border:1px solid rgba(46,102,74,.24);padding:15px 16px;animation:dd-rise .5s 1.32s ease-out both">
+              <div style="font-size: 16px; font-weight: 900; color: #1A1512; line-height: 1.5; text-align: center">지금 <span style="color:#DE5232">20분</span>은 움직여야<br>오후 졸음을 막을 수 있어요</div>
+            </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ obIsActivity }}">
+            <div style="width:100%;display:flex;flex-direction:column;gap:10px">
+              <div style="border-radius:15px;background:#EDF3EF;border:1.5px solid #DE5232;padding:15px 16px;display:flex;align-items:center;gap:13px">
+                <div style="width:44px;height:44px;border-radius:12px;background:rgba(222,82,50,.1);display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="24" height="24" viewBox="0 0 26 26"><rect x="4.5" y="3.5" width="7" height="11.5" rx="3.5" fill="#DE5232" transform="rotate(-13 8 9.2)"></rect><rect x="14.5" y="11" width="7" height="11.5" rx="3.5" fill="#DE5232" opacity=".5" transform="rotate(-13 18 16.7)"></rect></svg>
+                </div>
+                <div style="flex:1">
+                  <div style="font-size:15.5px;font-weight:900;color:#1A1512">걷기 15분</div>
+                  <div style="margin-top:3px;font-size:12.5px;font-weight:500;color:#7A6C63">천천히 걸어도 효과 있어요</div>
+                </div>
+                <span style="font-size:11px;font-weight:900;color:#DE5232">선택됨</span>
+              </div>
+              <div style="border-radius:15px;background:#EDF3EF;border:1.5px solid rgba(46,102,74,.24);padding:15px 16px;display:flex;align-items:center;gap:13px">
+                <div style="width:44px;height:44px;border-radius:12px;background:rgba(26,21,18,.06);display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="24" height="24" viewBox="0 0 26 26"><path d="M3 22h6v-5h6v-5h6V7" fill="none" stroke="#DE5232" stroke-width="2.4" stroke-linecap="round"></path></svg>
+                </div>
+                <div style="flex:1">
+                  <div style="font-size:15.5px;font-weight:900;color:#1A1512">계단오르기 10분</div>
+                  <div style="margin-top:3px;font-size:12.5px;font-weight:500;color:#7A6C63">짧은 시간에 효과가 커요</div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ obIsTrail }}">
+            <div style="width:100%;border-radius:16px;overflow:hidden;border:1px solid rgba(26,21,18,.16)">
+              <div style="position:relative;height:168px;background:repeating-linear-gradient(0deg,rgba(255,255,255,.9) 0 3px,transparent 3px 46px),repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 3px,transparent 3px 56px),#E4E9E1">
+                <div style="position:absolute;left:-20px;top:22px;width:140px;height:104px;border-radius:46% 54% 60% 40%;background:#D2E0CE"></div>
+                <div style="position:absolute;left:0;right:0;top:112px;height:9px;background:#DCE6EC"></div>
+                <div style="position:absolute;left:44px;top:60px;display:flex;flex-direction:column;align-items:center;gap:3px">
+                  <div style="padding:3px 7px;border-radius:6px;background:#fff;font-size:9.5px;font-weight:700;color:#1A1512;box-shadow:0 2px 6px rgba(60,40,30,.2);white-space:nowrap">관저근린공원</div>
+                  <div style="width:16px;height:16px;border-radius:50%;background:#DE5232;border:3px solid #fff;box-shadow:0 2px 6px rgba(60,40,30,.3)"></div>
+                </div>
+                <div style="position:absolute;left:150px;top:132px;width:14px;height:14px;border-radius:50%;background:#2F6BD6;border:3px solid #fff;box-shadow:0 0 0 7px rgba(47,107,214,.16)"></div>
+              </div>
+              <div style="background:#fff;padding:13px 15px;display:flex;align-items:center;justify-content:space-between">
+                <div>
+                  <div style="font-size:14.5px;font-weight:900;color:#1A1512">관저근린공원</div>
+                  <div style="margin-top:2px;font-size:11.5px;font-weight:500;color:#7A6C63">평지 순환 코스 · 그늘 많음</div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-size:15px;font-weight:900;color:#DE5232">450m</div>
+                  <div style="font-size:11px;font-weight:700;color:#8A7C73">도보 6분</div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ obIsMy }}">
+            <div style="width:100%;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;gap:8px">
+                <div style="flex:1;border-radius:14px;background:#fff;border:1px solid rgba(26,21,18,.16);padding:13px 12px">
+                  <div style="font-size:10.5px;font-weight:700;color:#A0938A">실천일수</div>
+                  <div style="margin-top:5px;font-size:21px;font-weight:900;color:#1A1512;line-height:1">13</div>
+                  <div style="margin-top:3px;font-size:10.5px;font-weight:700;color:#8A7C73">일 / 8월</div>
+                </div>
+                <div style="flex:1;border-radius:14px;background:#fff;border:1px solid rgba(26,21,18,.16);padding:13px 12px">
+                  <div style="font-size:10.5px;font-weight:700;color:#A0938A">졸음 예방률</div>
+                  <div style="margin-top:5px;font-size:21px;font-weight:900;color:#DE5232;line-height:1">85%</div>
+                  <div style="margin-top:3px;font-size:10.5px;font-weight:700;color:#8A7C73">실천일 기준</div>
+                </div>
+              </div>
+              <div style="border-radius:15px;background:#fff;border:1px solid rgba(26,21,18,.16);padding:14px 15px">
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <span style="font-size:12px;font-weight:900;color:#1A1512">2026년 8월</span>
+                  <span style="font-size:10.5px;font-weight:700;color:#8A7C73">스탬프 13일</span>
+                </div>
+                <div style="margin-top:10px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px">
+                  <sc-for list="{{ obCalendar }}" as="item" hint-placeholder-count="21">
+                    <div style="position:relative;aspect-ratio:1;border-radius:6px;border:1px solid rgba(26,21,18,.16);background:{{ item.bg }};display:flex;align-items:center;justify-content:center">
+                      <span style="position:absolute;width:20px;height:20px;border-radius:50%;border:1.8px solid {{ item.ring }};transform:rotate({{ item.rot }})"></span>
+                      <span style="position:relative;font-size:9.5px;font-weight:{{ item.fw }};color:{{ item.fg }};transform:rotate({{ item.rot }})">{{ item.day }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ obIsStamp }}">
+            <div style="position:relative;width:150px;height:150px;animation:dd-stamp .55s .3s cubic-bezier(.2,1.1,.3,1) both">
+              <div style="position:absolute;inset:0;border-radius:50%;border:5px solid #DE5232;opacity:.9"></div>
+              <div style="position:absolute;inset:11px;border-radius:50%;border:1.5px dashed rgba(222,82,50,.7)"></div>
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+                <div style="font-size:10px;font-weight:900;color:#DE5232;letter-spacing:.3em">DANGDANG</div>
+                <div style="font-size:30px;font-weight:900;color:#DE5232;letter-spacing:-1px">8.27</div>
+                <div style="width:44px;height:2px;background:rgba(222,82,50,.75)"></div>
+                <div style="margin-top:3px;font-size:11px;font-weight:900;color:#DE5232">걷기 완료</div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+
+        </div>
+
+        <div style="display:flex;gap:9px">
+          <sc-if value="{{ obHasBack }}">
+            <div onClick="{{ prevOnboard }}" style="width:78px;height:56px;border-radius:14px;background:#FFFFFF;border:1.5px solid rgba(26,21,18,.2);color:#5C5048;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;cursor:pointer;flex:none;transition:border-color .16s" style-hover="border-color:rgba(26,21,18,.36)">이전</div>
+          </sc-if>
+          <div onClick="{{ nextOnboard }}" style="flex:1;height:56px;border-radius:14px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer;transition:background .16s" style-hover="background:#C64525">{{ obCta }}</div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ true }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;padding:120px 26px 40px;display:flex;flex-direction:column">
+        <div style="font-size: 64px; font-weight: 900; letter-spacing: -3.5px; color: #1A1512; line-height: .95; font-family: Noto Sans KR; text-align: center; animation: dd-rise .5s .04s ease-out both">당당</div>
+        <div style="margin-top: 14px; font-size: 15.5px; font-weight: 500; line-height: 1.65; color: #6E6058; font-family: Noto Sans KR; text-align: center">먹은 음식만 입력하면<br><span style="color: rgb(222, 82, 50); font-weight: 700;">졸리지 않으려면 몇 분</span><br>움직여야 하는지 알려줘요.</div>
+
+        <div style="flex:1"></div>
+
+        <div onClick="{{ goSignin }}" style="height:56px;border-radius:14px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer;transition:background .16s" style-hover="background:#C64525">로그인</div>
+        <div onClick="{{ goSignup }}" style="margin-top:11px;height:56px;border-radius:14px;background:#FFFFFF;border:1.5px solid rgba(26,21,18,.22);color:#1A1512;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer;transition:border-color .16s" style-hover="border-color:rgba(26,21,18,.4)">회원가입</div>
+        <div style="margin-top: 10px; font-size: 12px; line-height: 1.6; color: #8A7C73; padding: 0 2px; text-align: center">스탬프 · 통계 · 신체정보가 저장됩니다.</div>
+
+        <div style="height:26px"></div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isSignin }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;padding:66px 22px 34px;display:flex;flex-direction:column">
+        <div onClick="{{ goLogin }}" style="width:44px;height:44px;margin-left:-10px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;color:#1A1512">←</div>
+        <div style="margin-top:10px;font-size:27px;font-weight:900;letter-spacing:-1.1px;color:#1A1512;line-height:1.25">다시 오셨네요</div>
+        <div style="margin-top:9px;font-size:13px;line-height:1.6;color:#7A6C63">닉네임과 비밀번호로 로그인하세요.</div>
+
+        <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
+          <div>
+            <div style="font-size:12.5px;font-weight:700;color:#5C5048;margin-bottom:7px">닉네임</div>
+            <input value="{{ signinId }}" onChange="{{ onSigninId }}" placeholder="당당러" style="width:100%;box-sizing:border-box;height:52px;padding:0 15px;border-radius:12px;border:1.5px solid rgba(46,102,74,.24);background:#EDF3EF;font-size:16px;font-weight:500;color:#1A1512;outline:none">
+          </div>
+          <div>
+            <div style="font-size:12.5px;font-weight:700;color:#5C5048;margin-bottom:7px">비밀번호</div>
+            <input type="password" value="{{ signinPw }}" onChange="{{ onSigninPw }}" placeholder="••••••••" style="width:100%;box-sizing:border-box;height:52px;padding:0 15px;border-radius:12px;border:1.5px solid {{ pwBorder }};background:#EDF3EF;font-size:16px;font-weight:500;color:#1A1512;outline:none">
+            <div style="margin-top:7px;font-size:12px;font-weight:600;color:{{ pwMsgColor }}">{{ pwMsg }}</div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;align-items:center;justify-content:space-between">
+          <div onClick="{{ toggleKeep }}" style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <div style="width:20px;height:20px;border-radius:6px;border:1.5px solid {{ keepBorder }};background:{{ keepBg }};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff">{{ keepMark }}</div>
+            <span style="font-size:13px;font-weight:600;color:#5C5048">로그인 상태 유지</span>
+          </div>
+          
+        </div>
+
+        <div style="flex:1;min-height:24px"></div>
+        <div onClick="{{ submitSignin }}" style="height:56px;border-radius:14px;background:{{ signinBg }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer">로그인</div>
+        <div onClick="{{ goSignup }}" style="margin-top:9px;height:48px;color:#8A7C73;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;cursor:pointer">처음이신가요? 회원가입</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isWelcome }}">
+      <div style="min-height:100%;height:100%;box-sizing:border-box;background:#FFFFFF;padding:120px 26px 40px;display:flex;flex-direction:column">
+        <div style="animation:dd-rise .5s .04s ease-out both">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:54px;height:54px;border-radius:50%;background:#E7E0DA;overflow:hidden;flex:none">
+              <svg width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="20" r="9.5" fill="#B3A79F"></circle><circle cx="27" cy="47" r="15.5" fill="#B3A79F"></circle></svg>
+            </div>
+            
+          </div>
+          <div style="margin-top:20px;font-size:32px;font-weight:900;letter-spacing:-1.5px;color:#1A1512;line-height:1.28">{{ displayName }}님,<br>안녕하세요</div>
+          <div style="margin-top:12px;font-size:15.5px;font-weight:500;line-height:1.65;color:#6E6058">오늘도 <span style="color:#DE5232;font-weight:700">식후 졸음 예측</span>을<br>시작해 볼까요?</div>
+        </div>
+
+        <div style="margin-top:26px;border-radius:16px;background:#EDF3EF;border:1px solid rgba(46,102,74,.24);padding:16px 17px;animation:dd-rise .5s .18s ease-out both">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:12.5px;font-weight:700;color:#5C5048">이번 달 도장</span>
+            <span style="font-size:19px;font-weight:900;color:#DE5232">{{ stampCount }}일</span>
+          </div>
+          <div style="margin-top:11px;display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:12.5px;font-weight:700;color:#5C5048">누적 활동</span>
+            <span style="font-size:19px;font-weight:900;color:#1A1512">184분</span>
+          </div>
+        </div>
+
+        <div style="flex:1"></div>
+        <div onClick="{{ goFood }}" style="height:56px;border-radius:14px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer;transition:background .16s" style-hover="background:#C64525">시작하기</div>
+        <div onClick="{{ goLogin }}" style="margin-top:9px;height:48px;color:#8A7C73;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;cursor:pointer">다른 계정으로 로그인</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isSignup }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;padding:66px 22px 34px;display:flex;flex-direction:column">
+        <div onClick="{{ goLogin }}" style="width:44px;height:44px;margin-left:-10px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;color:#1A1512">←</div>
+        <div style="margin-top:10px;font-size:27px;font-weight:900;letter-spacing:-1.1px;color:#1A1512;line-height:1.25">{{ signupTitle }}</div>
+        <div style="margin-top: 9px; font-size: 13px; line-height: 1.6; color: #7A6C63; text-align: center">몸무게·키·나이로 얼마나 움직여야 <br>오후 졸음을 막을 수 있는지 계산해요.</div>
+
+        <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px">
+          <div>
+            <div style="font-size:12.5px;font-weight:700;color:#5C5048;margin-bottom:7px">닉네임</div>
+            <input value="{{ nickname }}" onChange="{{ onNickname }}" placeholder="당당이" style="width:100%;box-sizing:border-box;height:52px;padding:0 15px;border-radius:12px;border:1.5px solid {{ nickBorder }};background:#EDF3EF;font-size:16px;font-weight:500;color:#1A1512;outline:none">
+            <div style="margin-top:7px;font-size:12px;font-weight:600;color:{{ nickMsgColor }}">{{ nickMsg }}</div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <div style="flex:1">
+              <div style="font-size:12.5px;font-weight:700;color:#5C5048;margin-bottom:7px">몸무게 (kg)</div>
+              <input value="{{ weight }}" onChange="{{ onWeight }}" style="width:100%;box-sizing:border-box;height:52px;padding:0 15px;border-radius:12px;border:1.5px solid rgba(46,102,74,.24);background:#EDF3EF;font-size:16px;font-weight:500;color:#1A1512;outline:none">
+            </div>
+            <div style="flex:1">
+              <div style="font-size:12.5px;font-weight:700;color:#5C5048;margin-bottom:7px">키 (cm)</div>
+              <input value="{{ height }}" onChange="{{ onHeight }}" style="width:100%;box-sizing:border-box;height:52px;padding:0 15px;border-radius:12px;border:1.5px solid rgba(46,102,74,.24);background:#EDF3EF;font-size:16px;font-weight:500;color:#1A1512;outline:none">
+            </div>
+            <div style="width:88px">
+              <div style="font-size:12.5px;font-weight:700;color:#5C5048;margin-bottom:7px">나이</div>
+              <input value="{{ age }}" onChange="{{ onAge }}" style="width:100%;box-sizing:border-box;height:52px;padding:0 15px;border-radius:12px;border:1.5px solid rgba(46,102,74,.24);background:#EDF3EF;font-size:16px;font-weight:500;color:#1A1512;outline:none">
+            </div>
+          </div>
+        </div>
+
+        <div style="flex:1;min-height:30px"></div>
+        <div onClick="{{ submitSignup }}" style="height:56px;border-radius:14px;background:{{ signupBg }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer">{{ signupCta }}</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isFood }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;display:flex;flex-direction:column">
+        <div style="padding:64px 22px 14px">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between">
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#A0938A;letter-spacing:.02em">{{ todayLabel }}</div>
+              <div style="margin-top:3px;font-size:26px;font-weight:900;letter-spacing:-1px;color:#1A1512">오늘 먹은 음식</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:11.5px;font-weight:700;color:#A0938A">식후 졸음 위험</div>
+              <div style="font-size:20px;font-weight:900;color:{{ glColor }};line-height:1.2">{{ glLabel }}</div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;display:flex;align-items:center;gap:10px;height:50px;padding:0 15px;border-radius:13px;background:#F6F4F1;border:1.5px solid {{ searchBorder }}">
+            <div style="width:15px;height:15px;border-radius:50%;border:2px solid #A0938A;flex:none"></div>
+            <input value="{{ query }}" onChange="{{ onQuery }}" placeholder="음식 이름 검색 (예: 김치찌개)" style="flex:1;border:none;outline:none;background:transparent;font-size:15px;font-weight:500;color:#1A1512">
+          </div>
+        </div>
+
+        <div style="flex:1;padding:0 22px">
+          <sc-if value="{{ showResults }}">
+            <div style="background:#F6F4F1;border:1px solid rgba(26,21,18,.18);border-radius:13px;overflow:hidden;box-shadow:0 6px 18px rgba(60,40,30,.07)">
+              <sc-for list="{{ results }}" as="item" hint-placeholder-count="3">
+                <div onClick="{{ item.onAdd }}" style="display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid rgba(26,21,18,.14);cursor:pointer;transition:background .14s" style-hover="background:#F8F8F7">
+                  <span style="font-size:15px;font-weight:700;color:#1A1512;flex:1">{{ item.name }}</span>
+                  <span style="font-size:19px;color:#DE5232;font-weight:700;width:16px;text-align:center">+</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ showUnknownPrompt }}">
+            <div style="background:#F6F4F1;border:1px solid rgba(26,21,18,.18);border-radius:13px;padding:16px;box-shadow:0 6px 18px rgba(60,40,30,.07)">
+              <div style="font-size:14px;font-weight:700;color:#1A1512;line-height:1.5">'{{ query }}'은/는 등록되지 않은 음식이에요</div>
+              <div style="margin-top:6px;font-size:12.5px;line-height:1.6;color:#7A6C63">음식 종류를 추정해서 결과를 제공해 드릴게요.</div>
+              <div onClick="{{ startRecognize }}" style="margin-top:13px;height:46px;border-radius:11px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:700;cursor:pointer">음식 종류 인식하기</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isRecognizing }}">
+            <div style="background:#F6F4F1;border:1px solid rgba(26,21,18,.18);border-radius:13px;padding:18px;display:flex;align-items:center;gap:13px;box-shadow:0 6px 18px rgba(60,40,30,.07)">
+              <div style="width:22px;height:22px;border-radius:50%;border:2.5px solid rgba(222,82,50,.2);border-top-color:#DE5232;animation:dd-spin .8s linear infinite;flex:none"></div>
+              <div>
+                <div style="font-size:14px;font-weight:700;color:#1A1512">미등록 음식을 인식하고 있어요…</div>
+                <div style="margin-top:4px;font-size:12px;color:#8A7C73;animation:dd-pulse 1.6s ease-in-out infinite">'{{ pendingName }}' 분석 중 · 최대 5초</div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isConfirming }}">
+            <div style="background:#FDF1ED;border:1px solid rgba(222,82,50,.4);border-radius:13px;padding:17px;animation:dd-pop .22s ease-out;box-shadow:0 6px 18px rgba(60,40,30,.07)">
+              <div style="font-size:16px;font-weight:900;color:#1A1512;line-height:1.45">{{ guessLabel }}가 맞나요?</div>
+              <div style="margin-top:6px;font-size:12.5px;line-height:1.6;color:#7A6C63">'{{ pendingName }}'을 {{ guessLabel }}로 보고 졸음 위험을 계산할게요.</div>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+                <div onClick="{{ acceptGuess }}" style="height:48px;border-radius:11px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;cursor:pointer">맞아요</div>
+                <div onClick="{{ rejectGuess }}" style="height:48px;border-radius:11px;background:#F6F4F1;border:1.5px solid rgba(26,21,18,.22);color:#1A1512;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;cursor:pointer">아니에요, 직접 고를게요</div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isCategory }}">
+            <div style="background:#F6F4F1;border:1px solid rgba(26,21,18,.18);border-radius:13px;padding:17px;animation:dd-pop .22s ease-out;box-shadow:0 6px 18px rgba(60,40,30,.07)">
+              <div style="font-size:15px;font-weight:900;color:#1A1512">'{{ pendingName }}'은 어떤 종류인가요?</div>
+              <div style="margin-top:13px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                <sc-for list="{{ categories }}" as="item" hint-placeholder-count="7">
+                  <div onClick="{{ item.onPick }}" style="height:48px;border-radius:11px;background:#F6F4F1;border:1.5px solid rgba(26,21,18,.22);display:flex;align-items:center;justify-content:space-between;padding:0 13px;cursor:pointer;transition:border-color .14s" style-hover="border-color:#DE5232">
+                    <span style="font-size:14px;font-weight:700;color:#1A1512">{{ item.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:9px">
+            <sc-for list="{{ items }}" as="item" hint-placeholder-count="3">
+              <div style="background:{{ item.bg }};border:1px solid {{ item.bd }};border-radius:14px;padding:13px 14px;display:flex;align-items:center;gap:11px">
+                <div style="flex:1;min-width:0">
+                  <div style="display:flex;align-items:center;gap:7px">
+                    <span style="font-size:15.5px;font-weight:700;color:#1A1512">{{ item.name }}</span>
+                    <span style="font-size:10px;font-weight:700;color:#A0938A">{{ item.estTag }}</span>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:2px;background:#F1EFEC;border-radius:10px;padding:3px">
+                  <div onClick="{{ item.onDec }}" style="width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:19px;font-weight:700;color:#5C5048;background:#fff">−</div>
+                  <div style="width:38px;text-align:center;font-size:14px;font-weight:700;color:#1A1512">{{ item.servText }}</div>
+                  <div onClick="{{ item.onInc }}" style="width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:19px;font-weight:700;color:#5C5048;background:#fff">+</div>
+                </div>
+                <div onClick="{{ item.onRemove }}" style="width:34px;height:34px;border-radius:9px;border:1px solid rgba(26,21,18,.14);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;font-weight:500;color:#9C918A;flex:none;transition:all .14s" style-hover="border-color:#DE5232;color:#DE5232">×</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <sc-if value="{{ isEmpty }}">
+            <div style="margin-top:10px;border:1.5px dashed rgba(26,21,18,.14);border-radius:14px;padding:26px 18px;text-align:center">
+              <div style="font-size:13.5px;font-weight:700;color:#7A6C63">아직 기록이 없어요</div>
+              <div style="margin-top:5px;font-size:12px;color:#A0938A">위 검색창에서 먹은 음식을 추가해 보세요.</div>
+            </div>
+          </sc-if>
+          <div style="height:20px"></div>
+        </div>
+
+        <div style="position:sticky;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,#FFFFFF 34%);padding:16px 22px 0">
+          <div onClick="{{ goResult }}" style="height:56px;border-radius:14px;background:{{ ctaBg }};color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;font-size:16.5px;font-weight:700;cursor:pointer">
+            <span>다음 단계로</span>
+          </div>
+          <div style="height:14px"></div>
+          <sc-for list="{{ tabs }}" as="item" hint-placeholder-count="0"><span></span></sc-for>
+          <div style="display:flex;border-top:1px solid rgba(26,21,18,.16);padding:9px 0 40px">
+            <sc-for list="{{ tabs }}" as="item" hint-placeholder-count="2">
+              <div onClick="{{ item.onClick }}" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;padding:5px 0">
+                <sc-if value="{{ item.isBook }}" hint-placeholder-val="{{ true }}">
+                  <svg width="21" height="21" viewBox="0 0 21 21"><rect x="2.5" y="3.5" width="16" height="14" rx="2.4" fill="none" stroke="{{ item.fg }}" stroke-width="1.9"></rect><line x1="10.5" y1="3.5" x2="10.5" y2="17.5" stroke="{{ item.fg }}" stroke-width="1.9"></line><line x1="5.6" y1="8" x2="8" y2="8" stroke="{{ item.fg }}" stroke-width="1.6" stroke-linecap="round"></line><line x1="13" y1="8" x2="15.4" y2="8" stroke="{{ item.fg }}" stroke-width="1.6" stroke-linecap="round"></line></svg>
+                </sc-if>
+                <sc-if value="{{ item.isMy }}">
+                  <svg width="21" height="21" viewBox="0 0 21 21"><circle cx="10.5" cy="7.6" r="3.4" fill="none" stroke="{{ item.fg }}" stroke-width="1.9"></circle><path d="M4.2 18c0-3.5 2.8-5.4 6.3-5.4s6.3 1.9 6.3 5.4" fill="none" stroke="{{ item.fg }}" stroke-width="1.9" stroke-linecap="round"></path></svg>
+                </sc-if>
+                <span style="font-size:11px;font-weight:700;color:{{ item.fg }}">{{ item.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isResult }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;padding:64px 22px 40px;display:flex;flex-direction:column">
+        <div onClick="{{ goFood }}" style="width:44px;height:44px;margin-left:-10px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;color:#1A1512">←</div>
+        <div style="margin-top:6px;font-size:26px;font-weight:900;letter-spacing:-1px;color:#1A1512">오늘 식사, 졸음 위험은?</div>
+
+        <div style="margin-top:22px;display:flex;justify-content:center">
+          <div style="position:relative;width:222px;height:222px">
+            <svg width="222" height="222" viewBox="0 0 222 222">
+              <circle cx="111" cy="111" r="94" fill="none" stroke="#F0EFEE" stroke-width="18"></circle>
+              <circle cx="111" cy="111" r="94" fill="none" stroke="{{ glColor }}" stroke-width="18" stroke-linecap="round" stroke-dasharray="590.6" stroke-dashoffset="{{ gaugeOffset }}" transform="rotate(-90 111 111)" style="--dd-off:{{ gaugeOffset }};animation:dd-ring 1.7s .12s cubic-bezier(.3,.85,.25,1) both"></circle>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+              <div style="font-size:11.5px;font-weight:700;color:#A0938A;letter-spacing:.04em">식후 졸음 위험</div>
+              <div style="font-size:42px;font-weight:900;letter-spacing:-2px;color:{{ glColor }};line-height:1.1;white-space:nowrap">{{ glLabel }}</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:6px;text-align:center;font-size:13.5px;font-weight:700;color:#5C5048;animation:dd-rise .5s .5s ease-out both">{{ glSub }}</div>
+
+        <div style="margin-top:18px;background:#EDF3EF;border:1px solid rgba(46,102,74,.22);border-radius:15px;padding:16px 17px;animation:dd-rise .5s .62s ease-out both">
+          <div style="font-size: 16.5px; font-weight: 900; color: #1A1512; line-height: 1.5; text-align: center">{{ recLine1 }}<br><span style="color:#DE5232">{{ recLine2 }}</span></div>
+        </div>
+
+        <div style="margin-top:18px;font-size:12.5px;font-weight:700;color:#5C5048">활동 고르기</div>
+        <div style="margin-top:9px;display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ activities }}" as="item" hint-placeholder-count="2">
+            <div onClick="{{ item.onPick }}" style="background:#EDF3EF;border:1.5px solid {{ item.border }};border-radius:15px;padding:15px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:border-color .16s;animation:dd-rise .5s {{ item.delay }} ease-out both" style-hover="border-color:#DE5232">
+              <div style="width:46px;height:46px;border-radius:12px;background:{{ item.iconBg }};display:flex;align-items:center;justify-content:center;flex:none">{{ item.icon }}</div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:7px">
+                  <span style="font-size:16px;font-weight:900;color:#1A1512">{{ item.title }}</span>
+                </div>
+                <div style="margin-top:4px;font-size:12.5px;font-weight:500;color:#7A6C63">{{ item.effect }} · 약 {{ item.kcal }}kcal</div>
+              </div>
+              <span style="font-size:18px;color:#C4B7AE">›</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isActConfirm }}">
+      <div style="position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:flex-end">
+        <div onClick="{{ closeConfirm }}" style="position:absolute;inset:0;background:rgba(26,21,18,.42);animation:dd-fade .3s ease-out both"></div>
+        <div style="position:relative;margin:0 12px 26px;background:#fff;border-radius:22px;padding:24px 20px 18px;animation:dd-sheet .3s ease-out both;box-shadow:0 16px 40px rgba(60,40,30,.28)">
+          <div style="font-size:21px;font-weight:900;letter-spacing:-.7px;color:#1A1512;text-align:center;line-height:1.4">{{ confirmLine }}</div>
+          <div style="margin-top:8px;font-size:13px;font-weight:500;color:#7A6C63;text-align:center;line-height:1.6">시작하면 타이머가 바로 켜져요.<br>중간에 멈추거나 완료 처리할 수 있어요.</div>
+          <div style="margin-top:20px;display:flex;flex-direction:column;gap:9px">
+            <div onClick="{{ startConfirmed }}" style="height:54px;border-radius:14px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;cursor:pointer" style-hover="background:#C64525">{{ confirmTitle }} 시작</div>
+            <div onClick="{{ closeConfirm }}" style="height:52px;border-radius:14px;background:#F4F3F1;color:#5C5048;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;cursor:pointer" style-hover="background:#EBE8E5">다시 고를게요</div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isTimer }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;padding:64px 22px 40px;display:flex;flex-direction:column">
+        <div onClick="{{ goResult }}" style="width:44px;height:44px;margin-left:-10px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;color:#1A1512">←</div>
+
+        <div style="margin-top:14px;display:flex;flex-direction:column;align-items:center;animation:dd-rise .45s .05s ease-out both">
+          <div style="width:56px;height:56px;border-radius:15px;background:rgba(222,82,50,.1);display:flex;align-items:center;justify-content:center">{{ actIcon }}</div>
+          <div style="margin-top:12px;font-size:24px;font-weight:900;letter-spacing:-.8px;color:#1A1512">{{ actTitle }}</div>
+          <div style="margin-top:5px;font-size:13px;font-weight:600;color:#8A7C73">{{ actSub }}</div>
+        </div>
+
+        <div style="margin-top:26px;display:flex;justify-content:center">
+          <div style="position:relative;width:268px;height:268px">
+            <svg width="268" height="268" viewBox="0 0 268 268">
+              <circle cx="134" cy="134" r="118" fill="none" stroke="#F0EFEE" stroke-width="14"></circle>
+              <circle cx="134" cy="134" r="118" fill="none" stroke="#DE5232" stroke-width="14" stroke-linecap="round" stroke-dasharray="741.4" stroke-dashoffset="{{ timerOffset }}" transform="rotate(-90 134 134)" style="transition:stroke-dashoffset .5s linear"></circle>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <div style="font-size:11.5px;font-weight:700;color:#A0938A;letter-spacing:.06em">남은 시간</div>
+              <div style="font-size:56px;font-weight:900;letter-spacing:-2.5px;color:#1A1512;line-height:1.1;font-variant-numeric:tabular-nums">{{ timeText }}</div>
+              <div style="font-size:13px;font-weight:700;color:#DE5232">{{ pctText }} 완료</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;display:flex;gap:9px;animation:dd-rise .5s .3s ease-out both">
+          <div style="flex:1;background:#EDF3EF;border:1px solid rgba(46,102,74,.22);border-radius:13px;padding:13px 14px">
+            <div style="font-size:11px;font-weight:700;color:#A0938A">예상 소모 칼로리</div>
+            <div style="margin-top:4px;font-size:20px;font-weight:900;color:#1A1512">{{ liveKcal }}<span style="font-size:12px;font-weight:700;color:#8A7C73"> kcal</span></div>
+          </div>
+          <div style="flex:1;background:#EDF3EF;border:1px solid rgba(46,102,74,.22);border-radius:13px;padding:13px 14px">
+            <div style="font-size:11px;font-weight:700;color:#A0938A">움직인 시간</div>
+            <div style="margin-top:4px;font-size:20px;font-weight:900;color:#DE5232">{{ movedMin }}<span style="font-size:12px;font-weight:700;color:#8A7C73"> 분</span></div>
+          </div>
+        </div>
+
+        <div style="flex:1;min-height:18px"></div>
+        <div onClick="{{ toggleRun }}" style="height:56px;border-radius:14px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer">{{ runLabel }}</div>
+        <div onClick="{{ finishNow }}" style="margin-top:9px;height:48px;border-radius:13px;background:transparent;color:#8A7C73;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;cursor:pointer">완료 처리하기</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isDone }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;padding:110px 22px 40px;display:flex;flex-direction:column;align-items:center">
+        <div style="position:relative;width:148px;height:148px;transform:rotate(-9deg);animation:dd-stamp .5s cubic-bezier(.2,1.1,.3,1) both">
+          <div style="position:absolute;inset:0;border-radius:50%;border:5px solid #DE5232;opacity:.9"></div>
+          <div style="position:absolute;inset:11px;border-radius:50%;border:1.5px dashed rgba(222,82,50,.7)"></div>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;opacity:.92">
+            <div style="font-size:10px;font-weight:900;color:#DE5232;letter-spacing:.3em">DANGDANG</div>
+            <div style="font-size:30px;font-weight:900;color:#DE5232;letter-spacing:-1px;line-height:1.1">{{ stampDate }}</div>
+            <div style="width:44px;height:2px;background:rgba(222,82,50,.75)"></div>
+            <div style="margin-top:3px;font-size:11px;font-weight:900;color:#DE5232;letter-spacing:.06em">{{ actTitle }} 완료</div>
+          </div>
+        </div>
+        <div style="margin-top:26px;font-size:26px;font-weight:900;letter-spacing:-1px;color:#1A1512;text-align:center;animation:dd-rise .5s .42s ease-out both">오늘 스탬프를 받았어요</div>
+        <div style="margin-top:8px;font-size:13.5px;line-height:1.7;color:#7A6C63;text-align:center">{{ doneSummary }}</div>
+
+        <div style="margin-top:22px;width:100%;display:flex;flex-direction:column;gap:10px;animation:dd-rise .5s .56s ease-out both">
+          <div style="background:#EDF3EF;border:1px solid rgba(46,102,74,.22);border-radius:16px;padding:17px 19px;display:flex;align-items:center;justify-content:space-between">
+            <div style="font-size:14.5px;font-weight:700;color:#5C5048">소모 칼로리</div>
+            <div style="font-size:27px;font-weight:900;letter-spacing:-1px;color:#1A1512;line-height:1">{{ finalKcal }}<span style="font-size:13px;font-weight:700;color:#8A7C73"> kcal</span></div>
+          </div>
+          <div style="background:#EDF3EF;border:1px solid rgba(46,102,74,.22);border-radius:16px;padding:17px 19px;display:flex;align-items:center;justify-content:space-between">
+            <div style="font-size:14.5px;font-weight:700;color:#5C5048">움직인 시간</div>
+            <div style="font-size:27px;font-weight:900;letter-spacing:-1px;color:#DE5232;line-height:1">{{ movedTotal }}<span style="font-size:13px;font-weight:700;color:#8A7C73"> 분</span></div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:11.5px;line-height:1.6;color:#A0938A;text-align:center">몸무게 {{ weight }}kg · MET 기반 추정치예요.</div>
+
+        <div style="flex:1;min-height:20px"></div>
+        <div onClick="{{ goWelcome }}" style="width:100%;height:56px;border-radius:14px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer">홈 화면으로 돌아가기</div>
+        <div onClick="{{ goMy }}" style="margin-top:9px;height:48px;color:#8A7C73;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;cursor:pointer">마이페이지에서 기록 보기</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMy }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;display:flex;flex-direction:column">
+        <div style="padding:66px 22px 0;display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:66px;height:66px;border-radius:50%;background:#E7E0DA;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;flex:none">
+              <svg width="66" height="66" viewBox="0 0 66 66"><circle cx="33" cy="25" r="11.5" fill="#B3A79F"></circle><circle cx="33" cy="58" r="19" fill="#B3A79F"></circle></svg>
+            </div>
+            <div>
+              <div style="font-size:23px;font-weight:900;letter-spacing:-.9px;color:#1A1512">{{ displayName }}</div>
+              <div style="margin-top:3px;font-size:12px;font-weight:600;color:#8A7C73">{{ joinLabel }}</div>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;background:#FFFFFF;border:1px solid rgba(26,21,18,.16);border-radius:15px;padding:16px 17px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:13px;font-weight:900;color:#1A1512">신체정보</span>
+              <div onClick="{{ goEdit }}" style="height:32px;padding:0 12px;border-radius:8px;border:1.5px solid rgba(26,21,18,.2);display:flex;align-items:center;font-size:12px;font-weight:700;color:#5C5048;cursor:pointer" style-hover="border-color:#DE5232">수정</div>
+            </div>
+            <div style="margin-top:13px;display:flex">
+              <div style="flex:1">
+                <div style="font-size:11px;font-weight:700;color:#A0938A">몸무게</div>
+                <div style="margin-top:2px;font-size:19px;font-weight:900;color:#1A1512">{{ weight }}<span style="font-size:11px;color:#8A7C73"> kg</span></div>
+              </div>
+              <div style="flex:1">
+                <div style="font-size:11px;font-weight:700;color:#A0938A">키</div>
+                <div style="margin-top:2px;font-size:19px;font-weight:900;color:#1A1512">{{ height }}<span style="font-size:11px;color:#8A7C73"> cm</span></div>
+              </div>
+              <div style="flex:1">
+                <div style="font-size:11px;font-weight:700;color:#A0938A">나이</div>
+                <div style="margin-top:2px;font-size:19px;font-weight:900;color:#1A1512">{{ age }}<span style="font-size:11px;color:#8A7C73"> 세</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:22px;font-size:13px;font-weight:900;color:#1A1512">통계</div>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <sc-for list="{{ stats }}" as="item" hint-placeholder-count="3">
+              <div style="flex:1;background:#FFFFFF;border:1px solid rgba(26,21,18,.16);border-radius:14px;padding:13px 12px">
+                <div style="font-size:10.5px;font-weight:700;color:#A0938A;line-height:1.3">{{ item.label }}</div>
+                <div style="margin-top:6px;font-size:22px;font-weight:900;letter-spacing:-.8px;color:{{ item.color }};line-height:1">{{ item.value }}</div>
+                <div style="margin-top:3px;font-size:10.5px;font-weight:700;color:#8A7C73">{{ item.unit }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:12px;background:#FFFFFF;border:1px solid rgba(26,21,18,.16);border-radius:15px;padding:16px 17px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:13px;font-weight:900;color:#1A1512">{{ monthLabel }}</span>
+              <span style="font-size:11px;font-weight:700;color:#8A7C73">스탬프 {{ stampCount }}일</span>
+            </div>
+            <div style="margin-top:12px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px">
+              <sc-for list="{{ weekdays }}" as="item" hint-placeholder-count="7">
+                <div style="text-align:center;font-size:10px;font-weight:700;color:#B3A79F;padding-bottom:4px">{{ item.label }}</div>
+              </sc-for>
+              <sc-for list="{{ calendar }}" as="item" hint-placeholder-count="35">
+                <div style="position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:7px;border:1px solid {{ item.border }};background:{{ item.bg }}">
+                  <span style="position:absolute;width:27px;height:27px;border-radius:50%;border:2.2px solid {{ item.ring }};transform:rotate({{ item.rot }});opacity:.9"></span>
+                  <span style="position:absolute;width:20px;height:20px;border-radius:50%;border:1px dashed {{ item.ring2 }};transform:rotate({{ item.rot }})"></span>
+                  <span style="position:relative;font-size:11px;font-weight:{{ item.fw }};color:{{ item.fg }};transform:rotate({{ item.rot }})">{{ item.day }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;background:#FFFFFF;border:1px solid rgba(26,21,18,.16);border-radius:15px;padding:16px 17px">
+            <div style="display:flex;align-items:baseline;justify-content:space-between">
+              <span style="font-size:13px;font-weight:900;color:#1A1512">최근 7일 졸음 위험</span>
+              <span style="font-size:11px;font-weight:700;color:#8A7C73">평균 {{ avgLabel }}</span>
+            </div>
+            <div style="margin-top:14px;display:flex;align-items:flex-end;gap:7px;height:104px">
+              <sc-for list="{{ chart }}" as="item" hint-placeholder-count="7">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end">
+                  <div style="width:100%;border-radius:6px 6px 3px 3px;background:{{ item.color }};height:{{ item.h }};transform-origin:bottom center;animation:dd-grow .55s {{ item.delay }} cubic-bezier(.2,.9,.25,1) both"></div>
+                  <span style="font-size:10px;font-weight:700;color:#B3A79F">{{ item.label }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;color:#B3A79F">막대가 높을수록 식후 졸음이 오기 쉬웠던 날이에요</div>
+
+          <div onClick="{{ goMap }}" style="margin-top:16px;background:#FDF2ED;border:1.5px solid rgba(200,88,56,.32);border-radius:15px;padding:16px 17px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:border-color .16s" style-hover="border-color:#DE5232">
+            <div style="width:40px;height:40px;border-radius:11px;background:rgba(222,82,50,.1);display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7.5" fill="none" stroke="#DE5232" stroke-width="2"></circle><circle cx="9" cy="9" r="2.6" fill="#DE5232"></circle></svg>
+            </div>
+            <div style="flex:1">
+              <div style="font-size:15px;font-weight:900;color:#1A1512">가까운 산책로</div>
+              <div style="margin-top:3px;font-size:12px;font-weight:500;color:#7A6C63">현재 위치 기준 공원 · 산책로 4곳</div>
+            </div>
+            <span style="font-size:18px;color:#C4B7AE">›</span>
+          </div>
+          <div style="margin-top:9px;font-size:11.5px;line-height:1.6;color:#A0938A">모든 수치는 GI·탄수화물·MET 공식을 이용한 <span style="font-weight:700;color:#8A7C73">추정치</span>이며 의료 진단이 아닙니다.</div>
+          <div style="height:26px"></div>
+        </div>
+
+        <div style="position:sticky;bottom:0;background:#FFFFFF;padding:0 22px">
+          <div style="display:flex;border-top:1px solid rgba(26,21,18,.16);padding:9px 0 40px">
+            <sc-for list="{{ tabs }}" as="item" hint-placeholder-count="2">
+              <div onClick="{{ item.onClick }}" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;padding:5px 0">
+                <sc-if value="{{ item.isBook }}" hint-placeholder-val="{{ true }}">
+                  <svg width="21" height="21" viewBox="0 0 21 21"><rect x="2.5" y="3.5" width="16" height="14" rx="2.4" fill="none" stroke="{{ item.fg }}" stroke-width="1.9"></rect><line x1="10.5" y1="3.5" x2="10.5" y2="17.5" stroke="{{ item.fg }}" stroke-width="1.9"></line><line x1="5.6" y1="8" x2="8" y2="8" stroke="{{ item.fg }}" stroke-width="1.6" stroke-linecap="round"></line><line x1="13" y1="8" x2="15.4" y2="8" stroke="{{ item.fg }}" stroke-width="1.6" stroke-linecap="round"></line></svg>
+                </sc-if>
+                <sc-if value="{{ item.isMy }}">
+                  <svg width="21" height="21" viewBox="0 0 21 21"><circle cx="10.5" cy="7.6" r="3.4" fill="none" stroke="{{ item.fg }}" stroke-width="1.9"></circle><path d="M4.2 18c0-3.5 2.8-5.4 6.3-5.4s6.3 1.9 6.3 5.4" fill="none" stroke="{{ item.fg }}" stroke-width="1.9" stroke-linecap="round"></path></svg>
+                </sc-if>
+                <span style="font-size:11px;font-weight:700;color:{{ item.fg }}">{{ item.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isEdit }}">
+      <div style="min-height:100%;box-sizing:border-box;background:#FFFFFF;padding:66px 22px 40px;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:6px;margin-left:-10px">
+          <div onClick="{{ goMy }}" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;color:#1A1512">←</div>
+          <span style="font-size:16px;font-weight:900;color:#1A1512">신체정보 수정</span>
+        </div>
+
+        <div style="margin-top:18px;display:flex;flex-direction:column;align-items:center">
+          <div style="width:82px;height:82px;border-radius:50%;background:#E7E0DA;overflow:hidden">
+            <svg width="82" height="82" viewBox="0 0 82 82"><circle cx="41" cy="31" r="14.5" fill="#B3A79F"></circle><circle cx="41" cy="72" r="23.5" fill="#B3A79F"></circle></svg>
+          </div>
+          
+        </div>
+
+        <div style="margin-top:22px;display:flex;flex-direction:column;gap:15px">
+          <sc-for list="{{ editFields }}" as="item" hint-placeholder-count="4">
+            <div>
+              <div style="font-size:12.5px;font-weight:700;color:#5C5048;margin-bottom:7px">{{ item.label }}</div>
+              <div style="display:flex;align-items:center;gap:10px;height:52px;padding:0 15px;border-radius:12px;border:1.5px solid rgba(46,102,74,.24);background:#EDF3EF">
+                <input value="{{ item.value }}" onChange="{{ item.onChange }}" style="flex:1;border:none;outline:none;background:transparent;font-size:16px;font-weight:600;color:#1A1512">
+                <span style="font-size:13px;font-weight:700;color:#A0938A">{{ item.unit }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="flex:1;min-height:24px"></div>
+        <div onClick="{{ saveEdit }}" style="height:56px;border-radius:14px;background:#DE5232;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;cursor:pointer" style-hover="background:#C64525">저장하기</div>
+        <div style="margin-top:9px;font-size:11.5px;line-height:1.6;color:#A0938A;text-align:center">{{ saveNote }}</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMap }}">
+      <div style="min-height:100%;height:100%;box-sizing:border-box;background:#EDE8E2;display:flex;flex-direction:column;position:relative">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.9) 0 3px,transparent 3px 62px),repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 3px,transparent 3px 74px),#E4E9E1"></div>
+        <div style="position:absolute;left:-40px;top:150px;width:250px;height:190px;border-radius:46% 54% 60% 40%;background:#D2E0CE"></div>
+        <div style="position:absolute;right:-60px;top:400px;width:230px;height:210px;border-radius:52% 48% 40% 60%;background:#D2E0CE"></div>
+        <div style="position:absolute;left:0;right:0;top:300px;height:12px;background:#DCE6EC"></div>
+        <div style="position:absolute;left:16px;bottom:250px;font:600 10px ui-monospace,Menlo,monospace;color:#8A9384;letter-spacing:.04em">지도 SDK 자리 — 공공데이터포털 전국도시공원정보 연동</div>
+
+        <svg width="402" height="500" viewBox="0 0 402 500" style="position:absolute;left:0;top:120px"><path d="M196 300 L196 236 L118 236 L118 186" fill="none" stroke="#DE5232" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" opacity="{{ routeOpacity }}"></path></svg>
+
+        <div style="position:relative;padding:64px 22px 0;display:flex;align-items:center;gap:6px">
+          <div onClick="{{ goMy }}" style="width:44px;height:44px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:#1A1512;box-shadow:0 3px 10px rgba(60,40,30,.14)">←</div>
+          <div style="height:44px;flex:1;border-radius:12px;background:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 14px;box-shadow:0 3px 10px rgba(60,40,30,.14)">
+            <div style="font-size:13.5px;font-weight:900;color:#1A1512;line-height:1.2">가까운 산책로 · 대전 서구</div>
+            <div style="font-size:10.5px;font-weight:600;color:#8A7C73">기본 위치 · 건양대학교 메디컬캠퍼스</div>
+          </div>
+        </div>
+
+        <sc-for list="{{ pins }}" as="item" hint-placeholder-count="4">
+          <div onClick="{{ item.onPick }}" style="position:absolute;left:{{ item.x }};top:{{ item.y }};transform:translate(-50%,-100%);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px">
+            <div style="padding:4px 8px;border-radius:7px;background:#fff;font-size:10.5px;font-weight:700;color:#1A1512;box-shadow:0 2px 8px rgba(60,40,30,.18);white-space:nowrap">{{ item.name }}</div>
+            <div style="width:{{ item.size }};height:{{ item.size }};border-radius:50%;background:{{ item.color }};border:3px solid #fff;box-shadow:0 2px 7px rgba(60,40,30,.3)"></div>
+          </div>
+        </sc-for>
+
+        <div style="position:absolute;left:196px;top:420px;transform:translate(-50%,-50%);width:18px;height:18px;border-radius:50%;background:#2F6BD6;border:3px solid #fff;box-shadow:0 0 0 9px rgba(47,107,214,.16)"></div>
+        <div style="position:absolute;left:196px;top:444px;transform:translateX(-50%);padding:4px 9px;border-radius:7px;background:#1A1512;color:#fff;font-size:10.5px;font-weight:700;white-space:nowrap">건양대학교 메디컬캠퍼스</div>
+        <div style="position:absolute;left:14px;right:14px;top:122px;display:flex;align-items:center;gap:9px;padding:11px 13px;border-radius:12px;background:rgba(26,21,18,.92);box-shadow:0 4px 14px rgba(60,40,30,.2)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#FFB9A6;flex:none"></span>
+          <span style="font-size:11.5px;font-weight:600;color:#F5F0EC;line-height:1.45">위치 권한이 없어 <span style="font-weight:900;color:#fff">건양대학교 메디컬캠퍼스</span>를 기준으로 보여주고 있어요</span>
+        </div>
+
+        <div style="flex:1"></div>
+        <div style="position:relative;margin:0 14px 30px;background:#fff;border-radius:20px;padding:18px 18px 16px;box-shadow:0 12px 30px rgba(60,40,30,.18)">
+          <div style="display:flex;align-items:flex-start;gap:12px">
+            <div style="flex:1">
+              <div style="font-size:19px;font-weight:900;letter-spacing:-.6px;color:#1A1512">{{ activePin.name }}</div>
+              <div style="margin-top:4px;font-size:12.5px;font-weight:500;color:#7A6C63">{{ activePin.desc }}</div>
+            </div>
+            <div style="font-size:10.5px;font-weight:700;color:#DE5232;background:rgba(222,82,50,.1);padding:5px 9px;border-radius:7px">{{ activePin.tag }}</div>
+          </div>
+          <div style="margin-top:14px;display:flex;border-top:1px solid rgba(26,21,18,.08);padding-top:13px">
+            <div style="flex:1">
+              <div style="font-size:10.5px;font-weight:700;color:#A0938A">거리</div>
+              <div style="margin-top:2px;font-size:19px;font-weight:900;color:#1A1512">{{ activePin.dist }}</div>
+            </div>
+            <div style="flex:1">
+              <div style="font-size:10.5px;font-weight:700;color:#A0938A">도보</div>
+              <div style="margin-top:2px;font-size:19px;font-weight:900;color:#1A1512">{{ activePin.walk }}</div>
+            </div>
+            <div style="flex:1">
+              <div style="font-size:10.5px;font-weight:700;color:#A0938A">코스 길이</div>
+              <div style="margin-top:2px;font-size:19px;font-weight:900;color:#1A1512">{{ activePin.loop }}</div>
+            </div>
+          </div>
+          <sc-if value="{{ isRouting }}">
+            <div style="margin-top:13px;display:flex;align-items:center;gap:9px;padding:11px 13px;border-radius:12px;background:#F1EFEC;border:1px solid rgba(26,21,18,.14)">
+              <span style="width:7px;height:7px;border-radius:50%;background:#DE5232;flex:none;animation:dd-pulse 1.4s ease-in-out infinite"></span>
+              <span style="font-size:12px;font-weight:700;color:#3E352F">안내 중 · {{ routeBanner }}</span>
+            </div>
+          </sc-if>
+          <div onClick="{{ openRoute }}" style="margin-top:14px;height:52px;border-radius:13px;background:{{ routeBg }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:15.5px;font-weight:700;cursor:pointer" style-hover="background:#C64525">{{ routeLabel }}</div>
+        </div>
+      </div>
+    </sc-if>
+
+  </x-import>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;스플래시&quot;,&quot;온보딩&quot;,&quot;시작 화면&quot;,&quot;로그인&quot;,&quot;로그인 상태 · 재방문&quot;,&quot;음식 입력&quot;,&quot;결과 확인&quot;,&quot;타이머&quot;,&quot;마이페이지&quot;,&quot;가까운 산책로&quot;],&quot;default&quot;:&quot;스플래시&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;프로토타입&quot;},&quot;loggedIn&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;프로토타입&quot;},&quot;timerSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:1,&quot;max&quot;:30,&quot;step&quot;:1,&quot;default&quot;:1,&quot;unit&quot;:&quot;×&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;프로토타입&quot;}}">
+const FOODS = [
+  { name: '흰쌀밥 1공기', gi: 92, carbs: 69 },
+  { name: '잡곡밥 1공기', gi: 68, carbs: 65 },
+  { name: '김치찌개', gi: 40, carbs: 11 },
+  { name: '라면', gi: 73, carbs: 79 },
+  { name: '김밥 1줄', gi: 74, carbs: 60 },
+  { name: '떡볶이 1인분', gi: 82, carbs: 78 },
+  { name: '식빵 2쪽', gi: 75, carbs: 26 },
+  { name: '치킨 3조각', gi: 35, carbs: 20 },
+  { name: '바나나 1개', gi: 51, carbs: 27 },
+  { name: '사과 1개', gi: 36, carbs: 21 },
+  { name: '콜라 350ml', gi: 63, carbs: 39 },
+  { name: '아메리카노', gi: 0, carbs: 0 },
+];
+const CATS = [
+  { label: '밥류', gi: 88, carbs: 68 },
+  { label: '면류', gi: 73, carbs: 76 },
+  { label: '빵류', gi: 75, carbs: 45 },
+  { label: '튀김류', gi: 60, carbs: 34 },
+  { label: '과일', gi: 42, carbs: 24 },
+  { label: '음료', gi: 63, carbs: 32 },
+  { label: '기타', gi: 55, carbs: 28 },
+];
+const TAKEN = ['당당이', '혈당왕'];
+const PINS = [
+  { name: '관저근린공원', desc: '평지 순환 코스 · 그늘 많음', tag: '평지', dist: '450m', walk: '6분', loop: '1.2km', x: '118px', y: '306px', size: '20px' },
+  { name: '구봉산 자연마당', desc: '완만한 흙길 · 경사 구간 있음', tag: '경사', dist: '1.3km', walk: '17분', loop: '3.5km', x: '292px', y: '250px', size: '16px' },
+  { name: '갑천 가수원 산책로', desc: '강변 직선 코스 · 야간 조명', tag: '강변', dist: '1.6km', walk: '20분', loop: '4.2km', x: '86px', y: '520px', size: '16px' },
+  { name: '도솔산 근린공원', desc: '숲길 순환 · 그늘 많음', tag: '숲길', dist: '2.4km', walk: '30분', loop: '2.6km', x: '318px', y: '560px', size: '16px' },
+];
+const OB = [
+  { step: 'STEP 1', title: '먹은 것만 넣으면 끝', body: '음식 이름만 검색해 담으면 돼요.\n칼로리 계산도, 사진 촬영도 필요 없어요.' },
+  { step: 'STEP 2', title: '오후에 졸릴지\n먼저 알려줘요', body: '먹은 음식으로 식후 졸음 위험을 계산해\n지금 몇 분 움직여야 하는지 알려줘요.' },
+  { step: 'STEP 3', title: '걷기와 계단오르기\n중에 골라요', body: '시간이 있으면 걷기, 짧게 끝내려면 계단.\n고른 활동에 맞춰 타이머가 켜져요.' },
+  { step: 'STEP 4', title: '가까운 산책로도\n찾아줘요', body: '지금 위치에서 가까운 대전 서구 공원과\n산책로를 거리·도보 시간과 함께 보여줘요.' },
+  { step: 'STEP 5', title: '움직이면\n도장이 찍혀요', body: '타이머대로 걷거나 계단을 오르면\n그날의 도장이 남아요. 달력에 쌓입니다.' },
+  { step: 'STEP 6', title: '마이페이지에\n기록이 모여요', body: '도장 달력과 최근 7일 졸음 위험,\n실천일수까지 한 화면에서 볼 수 있어요.' },
+];
+const SCREENS = [
+  ['splash', '스플래시'], ['onboard', '온보딩'], ['login', '시작 화면'], ['signin', '로그인'], ['welcome', '로그인 상태 · 재방문'], ['signup', '신체정보 입력'], ['food', '음식 입력'],
+  ['result', '결과 확인'], ['timer', '타이머'], ['done', '완료 · 스탬프'],
+  ['my', '마이페이지'], ['edit', '신체정보 수정'], ['map', '가까운 산책로'],
+];
+const STAMPS = [4, 5, 8, 11, 12, 13, 17, 19, 20, 24, 25, 26, 27];
+
+class Component extends DCLogic {
+  state = {
+    screen: 'splash', anon: false, nickname: '', weight: '62', height: '170', age: '22',
+    query: '', unknown: 'idle', pendingName: '', tab: 'record',
+    items: [{ id: 1, name: '흰쌀밥 1공기', gi: 92, carbs: 69, serv: 1, est: false }],
+    nextId: 2, act: null, left: 0, total: 900, running: false, pin: 0, routing: false,
+    selAct: null, confirming: false, ob: 0,
+    signinId: '', signinPw: '', pwError: false, keep: true,
+    draft: null, saved: false,
+  };
+
+  componentDidMount() {
+    const s = this.props.startScreen;
+    const map = { '온보딩': 'onboard', '시작 화면': 'login', '로그인': 'signin', '로그인 상태 · 재방문': 'welcome', '음식 입력': 'food', '결과 확인': 'result', '타이머': 'timer', '마이페이지': 'my', '가까운 산책로': 'map' };
+    if (s && map[s]) {
+      this.setState({ screen: map[s], act: map[s] === 'timer' ? 'walk' : null, left: 900 });
+    } else {
+      const next = this.props.loggedIn ? 'welcome' : 'onboard';
+      setTimeout(() => this.state.screen === 'splash' && this.setState({ screen: next }), 1900);
+    }
+    this.iv = setInterval(() => {
+      if (!this.state.running) return;
+      const step = Number(this.props.timerSpeed ?? 1);
+      this.setState((st) => {
+        const left = Math.max(0, st.left - step);
+        if (left === 0) { this.chime(); return { left: 0, running: false, screen: 'done' }; }
+        return { left };
+      });
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.iv); }
+
+  chime() {
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      this.ac = this.ac || new AC();
+      const ac = this.ac;
+      if (ac.state === 'suspended') ac.resume();
+      [[880, 0], [1174.7, 0.18], [1567.98, 0.36]].forEach(([freq, at]) => {
+        const t = ac.currentTime + at;
+        const osc = ac.createOscillator(), g = ac.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, t);
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(0.22, t + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0008, t + 0.75);
+        osc.connect(g).connect(ac.destination);
+        osc.start(t);
+        osc.stop(t + 0.8);
+      });
+    } catch (e) {}
+  }
+
+  go = (screen) => () => {
+    if (screen === 'timer') {
+      const m = this.state.actMin || 15;
+      this.setState({
+        screen, saved: false, act: this.state.act || 'walk', actMin: m, actMet: this.state.actMet || 3.5,
+        total: m * 60, left: this.state.left > 0 ? this.state.left : m * 60, running: true,
+      });
+      return;
+    }
+    this.setState({ screen, saved: false });
+  };
+
+  totals() {
+    const gl = this.state.items.reduce((a, i) => a + (i.gi * i.carbs * i.serv) / 100, 0);
+    return Math.round(gl);
+  }
+  glMeta(gl) {
+    if (gl < 20) return { color: '#3D8F63', label: '낮아요', sub: '이 식사로는 졸음이 오지 않아요' };
+    if (gl < 40) return { color: '#C98A16', label: '보통이에요', sub: '10분만 걸으면 산뜻하게 넘어가요' };
+    return { color: '#DE5232', label: '높아요', sub: '그냥 앉아 있으면 30분 뒤 졸음이 몰려와요' };
+  }
+  impactOf(gi, carbs) {
+    const v = (gi * carbs) / 100;
+    return v < 8 ? '적음' : v < 20 ? '보통' : '큼';
+  }
+  giMeta(gi) {
+    if (gi <= 55) return { giFg: '#2F6E4E', giBg: 'rgba(61,143,99,.12)' };
+    if (gi <= 69) return { giFg: '#96650C', giBg: 'rgba(201,138,22,.14)' };
+    return { giFg: '#B93E22', giBg: 'rgba(222,82,50,.12)' };
+  }
+  recMinutes(gl) { return gl >= 55 ? 20 : gl >= 30 ? 15 : 10; }
+  drop(min, met) { return Math.min(32, Math.round(min * (met / 3.5) * 1.2)); }
+  kcal(min, met) { return Math.round(met * (Number(this.state.weight) || 62) * (min / 60)); }
+
+  icon(kind, size) {
+    const s = size || 26, st = { stroke: '#DE5232', strokeWidth: 2.4, strokeLinecap: 'round', fill: 'none' };
+    if (kind === 'stairs') {
+      return React.createElement('svg', { width: s, height: s, viewBox: '0 0 26 26' },
+        React.createElement('path', Object.assign({ d: 'M3 22h6v-5h6v-5h6V7' }, st)));
+    }
+    return React.createElement('svg', { width: s, height: s, viewBox: '0 0 26 26' },
+      React.createElement('rect', { x: 4.5, y: 3.5, width: 7, height: 11.5, rx: 3.5, fill: '#DE5232', transform: 'rotate(-13 8 9.2)' }),
+      React.createElement('rect', { x: 14.5, y: 11, width: 7, height: 11.5, rx: 3.5, fill: '#DE5232', opacity: 0.5, transform: 'rotate(-13 18 16.7)' }));
+  }
+
+  addFood = (f, est) => () => this.setState((st) => ({
+    items: st.items.concat([{ id: st.nextId, name: f.name, gi: f.gi, carbs: f.carbs, serv: 1, est: !!est }]),
+    nextId: st.nextId + 1, query: '', unknown: 'idle',
+  }));
+
+  bump = (id, d) => () => this.setState((st) => ({
+    items: st.items
+      .map((i) => (i.id === id ? Object.assign({}, i, { serv: Math.max(0, Math.round((i.serv + d) * 2) / 2) }) : i))
+      .filter((i) => i.serv > 0),
+  }));
+
+  pickActivity = (kind, min, met) => () => this.setState({
+    screen: 'timer', act: kind, actMin: min, actMet: met, total: min * 60, left: min * 60, running: true,
+    confirming: false,
+  });
+
+  renderVals() {
+    const st = this.state, S = st.screen;
+    const gl = this.totals(), meta = this.glMeta(gl);
+    const recMin = this.recMinutes(gl);
+    const q = st.query.trim();
+    const matches = q ? FOODS.filter((f) => f.name.includes(q)) : [];
+    const guess = CATS.find((c) => (st.pendingName || '').includes('면') ? c.label === '면류' : c.label === '밥류') || CATS[0];
+    const actMin = st.actMin || 15, actMet = st.actMet || 3.5;
+    const actIsStairs = st.act === 'stairs';
+    const elapsed = st.total - st.left;
+    const nickTaken = TAKEN.indexOf(st.nickname.trim()) >= 0;
+    const nickOk = st.nickname.trim().length >= 2 && !nickTaken;
+    const d = st.draft || { nickname: st.nickname || '당당러', weight: st.weight, height: st.height, age: st.age };
+    const set = (k) => (e) => this.setState({ draft: Object.assign({}, d, { [k]: e.target.value }), saved: false });
+    const chartVals = [26, 41, 18, 52, 33, 29, gl];
+    const maxC = Math.max.apply(null, chartVals.concat([60]));
+
+    return {
+      isSplash: S === 'splash', isOnboard: S === 'onboard', isLogin: S === 'login',
+      isWelcome: S === 'welcome', lastVisitLabel: '마지막 기록 · 어제 점심',
+      isSignin: S === 'signin', goSignin: this.go('signin'), goWelcome: this.go('welcome'),
+      signinId: st.signinId, signinPw: st.signinPw,
+      onSigninId: (e) => this.setState({ signinId: e.target.value, pwError: false }),
+      onSigninPw: (e) => this.setState({ signinPw: e.target.value, pwError: false }),
+      pwBorder: st.pwError ? '#DE5232' : 'rgba(46,102,74,.24)',
+      pwMsg: st.pwError ? '닉네임 또는 비밀번호가 맞지 않아요.' : '8자 이상, 영문과 숫자를 섞어 주세요.',
+      pwMsgColor: st.pwError ? '#DE5232' : '#A0938A',
+      signinBg: st.signinId.trim() && st.signinPw.length >= 4 ? '#DE5232' : '#D8CFC8',
+      submitSignin: () => {
+        if (!st.signinId.trim() || st.signinPw.length < 4) return;
+        if (st.signinPw === 'wrong') { this.setState({ pwError: true }); return; }
+        this.setState({ screen: 'welcome', nickname: st.signinId.trim() });
+      },
+      toggleKeep: () => this.setState((s) => ({ keep: !s.keep })),
+      keepBorder: st.keep ? '#DE5232' : 'rgba(26,21,18,.26)',
+      keepBg: st.keep ? '#DE5232' : '#fff',
+      keepMark: st.keep ? '✓' : '',
+      obStep: OB[st.ob].step, obTitle: OB[st.ob].title, obBody: OB[st.ob].body,
+      obCta: st.ob === OB.length - 1 ? '당당 시작하기' : '다음',
+      obIsFood: st.ob === 0, obIsGauge: st.ob === 1, obIsActivity: st.ob === 2,
+      obIsTrail: st.ob === 3, obIsStamp: st.ob === 4, obIsMy: st.ob === 5,
+      obKey: 'ob' + st.ob, obHasBack: st.ob > 0,
+      obCalendar: Array.from({ length: 21 }, (_, i) => {
+        const day = i + 7;
+        const stamped = STAMPS.indexOf(day) >= 0;
+        return {
+          day, fw: stamped ? 900 : 500,
+          fg: stamped ? '#C2431F' : '#9C918A',
+          bg: stamped ? '#FFFFFF' : '#F4F3F1',
+          ring: stamped ? 'rgba(222,82,50,.8)' : 'transparent',
+          rot: stamped ? (['-9deg', '7deg', '-4deg'][day % 3] || '0deg') : '0deg',
+        };
+      }),
+      obDots: OB.map((_, i) => ({ w: i === st.ob ? '22px' : '6px', bg: i === st.ob ? '#DE5232' : '#E2DDD8' })),
+      prevOnboard: () => st.ob > 0 && this.setState({ ob: st.ob - 1 }),
+      nextOnboard: () => st.ob === OB.length - 1 ? this.setState({ screen: 'login' }) : this.setState({ ob: st.ob + 1 }),
+      skipOnboard: () => this.setState({ screen: 'login' }), isSignup: S === 'signup', isFood: S === 'food', isResult: S === 'result',
+      isTimer: S === 'timer', isDone: S === 'done', isMy: S === 'my', isEdit: S === 'edit', isMap: S === 'map',
+
+      navItems: SCREENS.map(([k, label], i) => ({
+        label, num: String(i + 1).padStart(2, '0'), onClick: this.go(k),
+        bg: S === k ? '#1A1512' : 'transparent', fg: S === k ? '#FFF6F2' : '#5C5048',
+        hover: S === k ? '#1A1512' : 'rgba(26,21,18,.055)', fw: S === k ? 700 : 500,
+      })),
+
+      goLogin: this.go('login'), goOnboard: this.go('onboard'), goSignup: this.go('signup'), goFood: this.go('food'),
+      goResult: this.go('result'), goMy: this.go('my'), goEdit: () => this.setState({ screen: 'edit', draft: d }),
+      goMap: this.go('map'),
+      signupTitle: '닉네임과 신체정보를 알려주세요',
+      signupCta: '시작하기',
+      submitSignup: () => nickOk && this.setState({ screen: 'food' }),
+
+      nickname: st.nickname, weight: st.weight, height: st.height, age: st.age,
+      onNickname: (e) => this.setState({ nickname: e.target.value }),
+      onWeight: (e) => this.setState({ weight: e.target.value }),
+      onHeight: (e) => this.setState({ height: e.target.value }),
+      onAge: (e) => this.setState({ age: e.target.value }),
+      nickBorder: nickTaken ? '#DE5232' : 'rgba(26,21,18,.14)',
+      nickMsg: nickTaken ? '이미 사용 중인 닉네임이에요. 다른 이름을 써주세요.'
+        : st.nickname.trim().length === 1 ? '2자 이상 입력해 주세요.' : '중복 확인 완료 · 2~10자',
+      nickMsgColor: nickTaken ? '#DE5232' : '#A0938A',
+      signupBg: nickOk ? '#DE5232' : '#D8CFC8',
+
+      todayLabel: '8월 27일 목요일 · 점심',
+      totalGL: gl, glColor: meta.color, glLabel: meta.label, glSub: meta.sub,
+      query: st.query, onQuery: (e) => this.setState({ query: e.target.value, unknown: 'idle' }),
+      searchBorder: q ? '#DE5232' : 'rgba(26,21,18,.12)',
+      showResults: matches.length > 0 && st.unknown === 'idle',
+      showUnknownPrompt: q.length > 0 && matches.length === 0 && st.unknown === 'idle',
+      isRecognizing: st.unknown === 'loading', isConfirming: st.unknown === 'confirm', isCategory: st.unknown === 'category',
+      results: matches.map((f) => Object.assign({
+        name: f.name, impact: this.impactOf(f.gi, f.carbs), onAdd: this.addFood(f, false),
+      }, this.giMeta(f.gi))),
+      pendingName: st.pendingName,
+      startRecognize: () => {
+        this.setState({ unknown: 'loading', pendingName: q });
+        setTimeout(() => this.state.unknown === 'loading' && this.setState({ unknown: 'confirm' }), 1700);
+      },
+      guessLabel: guess.label, guessGI: guess.gi,
+      acceptGuess: this.addFood({ name: st.pendingName + ' (' + guess.label + ' 추정)', gi: guess.gi, carbs: guess.carbs }, true),
+      rejectGuess: () => this.setState({ unknown: 'category' }),
+      categories: CATS.map((c) => ({
+        label: c.label, impact: this.impactOf(c.gi, c.carbs),
+        onPick: this.addFood({ name: st.pendingName + ' (' + c.label + ')', gi: c.gi, carbs: c.carbs }, true),
+      })),
+      items: st.items.map((i, n) => Object.assign({
+        bg: ['#FDF2ED', '#EFF4F0', '#F1F3F8', '#FBF4E7'][n % 4],
+        bd: ['rgba(200,88,56,.28)', 'rgba(60,120,90,.24)', 'rgba(60,90,150,.22)', 'rgba(180,130,30,.26)'][n % 4],
+        name: i.name, gi: i.gi, carbs: Math.round(i.carbs * i.serv),
+        impact: this.impactOf(i.gi, i.carbs * i.serv),
+        servText: (i.serv % 1 ? i.serv.toFixed(1) : i.serv) + '인분',
+        estTag: i.est ? '추정' : '', onInc: this.bump(i.id, 0.5), onDec: this.bump(i.id, -0.5),
+        onRemove: () => this.setState((s) => ({ items: s.items.filter((x) => x.id !== i.id) })),
+      }, this.giMeta(i.gi))),
+      isEmpty: st.items.length === 0,
+      ctaBg: st.items.length ? '#1A1512' : '#D8CFC8',
+      tabs: [
+        { label: '기록', isBook: true, isMy: false, fg: S === 'food' || S === 'result' ? '#DE5232' : '#B3A79F', onClick: this.go('food') },
+        { label: '마이', isBook: false, isMy: true, fg: S === 'my' ? '#DE5232' : '#B3A79F', onClick: this.go('my') },
+      ],
+
+      gaugeOffset: 590.6 * (1 - Math.min(1, gl / 70)),
+      recMinutes: recMin,
+      recLine1: recMin >= 20 ? '지금 20분은 움직여야' : recMin >= 15 ? '지금부터 15분만 움직이면' : '지금 10분만 걸어도',
+      recLine2: recMin >= 20 ? '오후 졸음을 막을 수 있어요' : recMin >= 15 ? '오후에 졸리지 않아요' : '오후가 가뿐해져요',
+      selAct: st.selAct,
+      confirmTitle: st.selAct === 'stairs' ? '계단오르기 10분' : '걷기 ' + recMin + '분',
+      confirmLine: (st.selAct === 'stairs' ? '계단오르기 10분' : '걷기 ' + recMin + '분') + '으로 시작할까요?',
+      closeConfirm: () => this.setState({ confirming: false }),
+      startConfirmed: st.selAct === 'stairs' ? this.pickActivity('stairs', 10, 8) : this.pickActivity('walk', recMin, 3.5),
+      isActConfirm: !!st.confirming,
+      activities: [
+        {
+          title: '걷기 ' + recMin + '분', tag: '추천', border: st.selAct === 'walk' ? '#DE5232' : 'rgba(26,21,18,.14)', iconBg: 'rgba(222,82,50,.1)',
+          icon: this.icon('walk'), effect: '천천히 걸어도 효과 있어요', kcal: this.kcal(recMin, 3.5), delay: '.74s',
+          onPick: () => this.setState((s) => (s.selAct === 'walk' ? { confirming: true } : { selAct: 'walk', confirming: false })),
+        },
+        {
+          title: '계단오르기 10분', tag: '짧게', border: st.selAct === 'stairs' ? '#DE5232' : 'rgba(26,21,18,.14)', iconBg: 'rgba(26,21,18,.06)',
+          icon: this.icon('stairs'), effect: '짧은 시간에 효과가 커요', kcal: this.kcal(10, 8), delay: '.84s',
+          onPick: () => this.setState((s) => (s.selAct === 'stairs' ? { confirming: true } : { selAct: 'stairs', confirming: false })),
+        },
+      ],
+
+      actIcon: this.icon(actIsStairs ? 'stairs' : 'walk', 30),
+      actTitle: actIsStairs ? '계단오르기' : '걷기',
+      actSub: actIsStairs ? '한 층씩 천천히 올라가요' : '편한 속도로 걸으면 충분해요',
+      timeText: String(Math.floor(st.left / 60)).padStart(2, '0') + ':' + String(st.left % 60).padStart(2, '0'),
+      timerOffset: 741.4 * (st.left / (st.total || 1)),
+      pctText: Math.round((elapsed / (st.total || 1)) * 100) + '%',
+      liveKcal: Math.round(actMet * (Number(st.weight) || 62) * (elapsed / 3600)),
+      movedMin: Math.floor(elapsed / 60), movedTotal: actIsStairs ? 10 : actMin, finalKcal: this.kcal(actMin, actMet),
+      runLabel: st.running ? '잠시 멈추기' : '이어서 하기',
+      toggleRun: () => this.setState((s) => ({ running: !s.running })),
+      finishNow: () => { this.chime(); this.setState({ screen: 'done', running: false, left: 0 }); },
+
+      stampDate: '8.27', doneSummary: (actIsStairs ? '계단오르기 10분' : '걷기 ' + actMin + '분') + '을 마쳤어요. 이 정도면 이제 졸음은 오지 않을 거예요.',
+
+      displayName: st.nickname.trim() || '당당러',
+      joinLabel: '2026년 8월 4일부터 함께',
+      stats: [
+        { label: '실천일수', value: 13, unit: '일 / 8월', color: '#1A1512' },
+        { label: '졸음 예방률', value: '85%', unit: '실천일 기준', color: '#DE5232' },
+        { label: '누적 활동', value: 184, unit: '분', color: '#1A1512' },
+      ],
+      monthLabel: '2026년 8월', stampCount: STAMPS.length,
+      weekdays: ['일', '월', '화', '수', '목', '금', '토'].map((label) => ({ label })),
+      calendar: Array.from({ length: 42 }, (_, i) => {
+        const day = i - 5;
+        const inMonth = day >= 1 && day <= 31;
+        const stamped = inMonth && STAMPS.indexOf(day) >= 0;
+        const today = day === 27;
+        return {
+          day: inMonth ? day : '', fw: stamped ? 900 : 500,
+          fg: !inMonth ? 'transparent' : today ? '#fff' : stamped ? '#C2431F' : '#9C918A',
+          bg: today ? '#1A1512' : stamped ? '#FFFFFF' : inMonth ? '#F4F3F1' : 'transparent',
+          border: inMonth ? 'rgba(26,21,18,.2)' : 'transparent',
+          ring: stamped ? (today ? 'rgba(255,255,255,.85)' : 'rgba(222,82,50,.8)') : 'transparent',
+          ring2: stamped ? (today ? 'rgba(255,255,255,.55)' : 'rgba(222,82,50,.45)') : 'transparent',
+          rot: stamped ? (['-9deg', '7deg', '-4deg'][day % 3] || '0deg') : '0deg',
+        };
+      }),
+      avgLabel: this.glMeta(Math.round(chartVals.reduce((a, b) => a + b, 0) / chartVals.length)).label,
+      chart: ['21', '22', '23', '24', '25', '26', '오늘'].map((label, i) => ({
+        label, h: Math.round((chartVals[i] / maxC) * 76) + 'px', delay: (0.08 + i * 0.06).toFixed(2) + 's',
+        color: i === 6 ? '#DE5232' : 'rgba(26,21,18,.16)',
+      })),
+
+      editFields: [
+        { label: '닉네임', value: d.nickname, unit: '', onChange: set('nickname') },
+        { label: '몸무게', value: d.weight, unit: 'kg', onChange: set('weight') },
+        { label: '키', value: d.height, unit: 'cm', onChange: set('height') },
+        { label: '나이', value: d.age, unit: '세', onChange: set('age') },
+      ],
+      saveEdit: () => this.setState({
+        nickname: d.nickname, weight: d.weight, height: d.height, age: d.age, screen: 'my', saved: true, draft: null,
+      }),
+      saveNote: '몸무게가 바뀌면 필요한 활동 시간과 소모 칼로리도 다시 계산돼요.',
+
+      pins: PINS.map((p, i) => ({
+        name: p.name, x: p.x, y: p.y, size: i === st.pin ? '22px' : '16px',
+        color: i === st.pin ? '#DE5232' : '#8A7C73', onPick: () => this.setState({ pin: i, routing: false }),
+      })),
+      activePin: PINS[st.pin], routeOpacity: st.routing ? 1 : 0.3,
+      openRoute: () => this.setState((s) => ({ routing: !s.routing })),
+      routeLabel: st.routing ? '안내 종료' : '길 안내',
+      routeBg: st.routing ? '#3E352F' : '#DE5232',
+      isRouting: st.routing,
+      routeBanner: PINS[st.pin].name + '까지 ' + PINS[st.pin].walk + ' · ' + PINS[st.pin].dist,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

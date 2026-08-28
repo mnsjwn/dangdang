@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>당당</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        background: #f7f7f6;
+        font-family: "Noto Sans KR", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      * { font-family: "Noto Sans KR", system-ui, sans-serif; }
+      input, button { font-family: inherit; }
+      #root { background: #fff; }
+
+      /* 디자인(당당 App.dc.html)의 모션 그대로 */
+      @keyframes dd-spin { to { transform: rotate(360deg); } }
+      @keyframes dd-pulse { 0%, 100% { opacity: .35 } 50% { opacity: 1 } }
+      @keyframes dd-pop { 0% { transform: scale(.85); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
+      @keyframes dd-rise { 0% { transform: translateY(14px); opacity: 0 } 100% { transform: translateY(0); opacity: 1 } }
+      @keyframes dd-bar { 0% { transform: scaleX(0) } 100% { transform: scaleX(1) } }
+      @keyframes dd-stamp {
+        0% { transform: rotate(-9deg) scale(1.5); opacity: 0 }
+        55% { transform: rotate(-9deg) scale(.94); opacity: 1 }
+        80% { transform: rotate(-9deg) scale(1.04) }
+        100% { transform: rotate(-9deg) scale(1) }
+      }
+      @keyframes dd-ring { 0% { stroke-dashoffset: 590.6 } 100% { stroke-dashoffset: var(--dd-off) } }
+      @keyframes dd-grow { 0% { transform: scaleY(0) } 100% { transform: scaleY(1) } }
+      @keyframes dd-sheet { 0% { transform: translateY(14px); opacity: 0 } 100% { transform: translateY(0); opacity: 1 } }
+      @keyframes dd-fade { 0% { opacity: 0 } 100% { opacity: 1 } }
+      @keyframes dd-ob-ring { 0% { stroke-dashoffset: 515.2 } 100% { stroke-dashoffset: 150 } }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,1530 @@
+{
+  "meta": {
+    "app": "당당",
+    "generatedAt": "2026-08-28",
+    "gi": {
+      "source": "송수진·최하늬·이사야·박정민·김보라·백희영·송윤주. 「한국인 상용 식품의 혈당지수(Glycemic Index) 추정치를 활용한 한국 성인의 식사혈당지수 산출」. 한국영양학회지(Korean J Nutr) 2012;45(1):80-93.",
+      "url": "https://synapse.koreamed.org/pdf/10.4163/kjn.2012.45.1.80",
+      "note": "복합요리(김밥·떡볶이 등)는 논문에 단독 항목이 없어 주재료 GI를 적용하고 giBasedOn에 근거를 남김."
+    },
+    "carbs": {
+      "source": "식품의약품안전처 전국통합식품영양성분정보 표준데이터 (공공데이터포털)",
+      "url": "https://www.data.go.kr/data/15100070/standard.do",
+      "method": "같은 대표식품명에 속한 제품들의 100g당 탄수화물 중앙값을 구한 뒤, 1인분 중량을 곱해 환산",
+      "servingNote": "1인분 중량은 앱이 정한 기준이며 각 항목의 serving에 g으로 표기함"
+    },
+    "disclaimer": "GI·탄수화물·MET 공식을 이용한 추정치이며 의료 진단이 아닙니다."
+  },
+  "categories": [
+    {
+      "label": "밥류",
+      "gi": 72,
+      "carbs": 55,
+      "basis": "15개 항목 평균"
+    },
+    {
+      "label": "면류",
+      "gi": 52,
+      "carbs": 56,
+      "basis": "9개 항목 평균"
+    },
+    {
+      "label": "빵류",
+      "gi": 61,
+      "carbs": 31,
+      "basis": "13개 항목 평균"
+    },
+    {
+      "label": "튀김류",
+      "gi": 60,
+      "carbs": 39,
+      "basis": "10개 항목 평균"
+    },
+    {
+      "label": "과일",
+      "gi": 52,
+      "carbs": 21,
+      "basis": "16개 항목 평균"
+    },
+    {
+      "label": "음료",
+      "gi": 53,
+      "carbs": 22,
+      "basis": "10개 항목 평균"
+    },
+    {
+      "label": "기타",
+      "gi": 45,
+      "carbs": 18,
+      "basis": "18개 항목 평균"
+    }
+  ],
+  "foods": [
+    {
+      "name": "밥",
+      "gi": 72,
+      "carbs": 80,
+      "serving": "1공기(210g)",
+      "category": "밥류",
+      "giCode": "1197",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 38.3,
+      "carbMatch": {
+        "name": "밥",
+        "samples": 1,
+        "exact": false
+      }
+    },
+    {
+      "name": "잡곡밥",
+      "gi": 72,
+      "carbs": 62,
+      "serving": "1공기(210g)",
+      "category": "밥류",
+      "giCode": "1198",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 29.3,
+      "carbMatch": {
+        "name": "잡곡밥",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "현미",
+      "gi": 62,
+      "carbs": 82,
+      "serving": "1공기(210g)",
+      "category": "밥류",
+      "giCode": "1165",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 38.9,
+      "carbMatch": {
+        "name": "현미밥",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "누룽지",
+      "gi": 72,
+      "carbs": 25,
+      "serving": "1조각(30g)",
+      "category": "밥류",
+      "giCode": "1204",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 83.9,
+      "carbMatch": {
+        "name": "누룽지",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "죽",
+      "gi": 68,
+      "carbs": 39,
+      "serving": "1그릇(300g)",
+      "category": "밥류",
+      "giCode": "1205",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 12.9,
+      "carbMatch": {
+        "name": "죽",
+        "samples": 206,
+        "exact": true
+      }
+    },
+    {
+      "name": "가래떡/백설기",
+      "gi": 82,
+      "carbs": 46,
+      "serving": "100g",
+      "category": "밥류",
+      "giCode": "1211",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 46.1,
+      "carbMatch": {
+        "name": "가래떡",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "찹쌀떡",
+      "gi": 82,
+      "carbs": 27,
+      "serving": "1개(50g)",
+      "category": "밥류",
+      "giCode": "1239",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 54.5,
+      "carbMatch": {
+        "name": "찹쌀떡",
+        "samples": 10,
+        "exact": true
+      }
+    },
+    {
+      "name": "팥떡/시루떡",
+      "gi": 48,
+      "carbs": 38,
+      "serving": "1조각(80g)",
+      "category": "밥류",
+      "giCode": "1156",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 48.1,
+      "carbMatch": {
+        "name": "시루떡",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "시리얼",
+      "gi": 73,
+      "carbs": 27,
+      "serving": "1공기(40g)",
+      "category": "밥류",
+      "giCode": "1158",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 67.5,
+      "carbMatch": {
+        "name": "시리얼",
+        "samples": 123,
+        "exact": true
+      }
+    },
+    {
+      "name": "미숫가루/선식",
+      "gi": 56,
+      "carbs": 21,
+      "serving": "1잔(200g)",
+      "category": "밥류",
+      "giCode": "1151",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 10.4,
+      "carbMatch": {
+        "name": "미숫가루",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "볶음밥/덮밥",
+      "gi": 80,
+      "carbs": 68,
+      "serving": "1접시(300g)",
+      "category": "밥류",
+      "giCode": "17017",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 22.7,
+      "carbMatch": {
+        "name": "볶음밥",
+        "samples": 18,
+        "exact": true
+      }
+    },
+    {
+      "name": "라면(조리한 것)",
+      "gi": 50,
+      "carbs": 76,
+      "serving": "1봉지(120g)",
+      "category": "면류",
+      "giCode": "1032",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 63.6,
+      "carbMatch": {
+        "name": "라면",
+        "samples": 246,
+        "exact": true
+      }
+    },
+    {
+      "name": "컵라면",
+      "gi": 50,
+      "carbs": 48,
+      "serving": "1개(75g)",
+      "category": "면류",
+      "giCode": "81001",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 63.6,
+      "carbMatch": {
+        "name": "라면",
+        "samples": 246,
+        "exact": true
+      }
+    },
+    {
+      "name": "우동",
+      "gi": 55,
+      "carbs": 34,
+      "serving": "1그릇(300g)",
+      "category": "면류",
+      "giCode": "1039",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 11.5,
+      "carbMatch": {
+        "name": "우동",
+        "samples": 6,
+        "exact": true
+      }
+    },
+    {
+      "name": "자장면(인스턴트)",
+      "gi": 50,
+      "carbs": 63,
+      "serving": "1그릇(350g)",
+      "category": "면류",
+      "giCode": "1042",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 18.1,
+      "carbMatch": {
+        "name": "자장면",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "국수(삶은 것)",
+      "gi": 48,
+      "carbs": 68,
+      "serving": "1인분(건면 100g)",
+      "category": "면류",
+      "giCode": "1030",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 68.3,
+      "carbMatch": {
+        "name": "국수",
+        "samples": 184,
+        "exact": true
+      }
+    },
+    {
+      "name": "쫄면",
+      "gi": 50,
+      "carbs": 51,
+      "serving": "1인분(생면 100g)",
+      "category": "면류",
+      "giCode": "1049",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 50.9,
+      "carbMatch": {
+        "name": "쫄면",
+        "samples": 6,
+        "exact": true
+      }
+    },
+    {
+      "name": "칼국수(생면)",
+      "gi": 62,
+      "carbs": 57,
+      "serving": "1인분(생면 100g)",
+      "category": "면류",
+      "giCode": "1050",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 57.3,
+      "carbMatch": {
+        "name": "칼국수",
+        "samples": 62,
+        "exact": true
+      }
+    },
+    {
+      "name": "메밀국수/냉면",
+      "gi": 59,
+      "carbs": 46,
+      "serving": "1그릇(350g)",
+      "category": "면류",
+      "giCode": "1007",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 13.2,
+      "carbMatch": {
+        "name": "냉면",
+        "samples": 6,
+        "exact": true
+      }
+    },
+    {
+      "name": "스파게티",
+      "gi": 42,
+      "carbs": 57,
+      "serving": "1접시(300g)",
+      "category": "면류",
+      "giCode": "17025",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 19,
+      "carbMatch": {
+        "name": "스파게티",
+        "samples": 32,
+        "exact": true
+      }
+    },
+    {
+      "name": "식빵",
+      "gi": 65,
+      "carbs": 17,
+      "serving": "1장(35g)",
+      "category": "빵류",
+      "giCode": "1084",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 47.3,
+      "carbMatch": {
+        "name": "식빵",
+        "samples": 298,
+        "exact": true
+      }
+    },
+    {
+      "name": "빵(기타)",
+      "gi": 61,
+      "carbs": 37,
+      "serving": "1개(80g)",
+      "category": "빵류",
+      "giCode": "1053",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 45.8,
+      "carbMatch": {
+        "name": "기타빵",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "잼빵/팥빵/크림빵",
+      "gi": 62,
+      "carbs": 46,
+      "serving": "1개(90g)",
+      "category": "빵류",
+      "giCode": "1083",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 51,
+      "carbMatch": {
+        "name": "단팥빵",
+        "samples": 64,
+        "exact": true
+      }
+    },
+    {
+      "name": "샌드위치",
+      "gi": 71,
+      "carbs": 36,
+      "serving": "1개(150g)",
+      "category": "빵류",
+      "giCode": "1072",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 24.2,
+      "carbMatch": {
+        "name": "샌드위치",
+        "samples": 755,
+        "exact": true
+      }
+    },
+    {
+      "name": "도넛",
+      "gi": 73,
+      "carbs": 23,
+      "serving": "1개(50g)",
+      "category": "빵류",
+      "giCode": "1055",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 46,
+      "carbMatch": {
+        "name": "도넛",
+        "samples": 193,
+        "exact": true
+      }
+    },
+    {
+      "name": "크로아상/페이스트리",
+      "gi": 56,
+      "carbs": 25,
+      "serving": "1개(55g)",
+      "category": "빵류",
+      "giCode": "1121",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 45.8,
+      "carbMatch": {
+        "name": "기타빵",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "케이크",
+      "gi": 50,
+      "carbs": 32,
+      "serving": "1조각(90g)",
+      "category": "빵류",
+      "giCode": "1103",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 35,
+      "carbMatch": {
+        "name": "케이크",
+        "samples": 1462,
+        "exact": true
+      }
+    },
+    {
+      "name": "카스테라",
+      "gi": 46,
+      "carbs": 28,
+      "serving": "1조각(60g)",
+      "category": "빵류",
+      "giCode": "1100",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 46,
+      "carbMatch": {
+        "name": "카스텔라",
+        "samples": 155,
+        "exact": true
+      }
+    },
+    {
+      "name": "비스켓/쿠키/크래커",
+      "gi": 61,
+      "carbs": 31,
+      "serving": "1봉(50g)",
+      "category": "빵류",
+      "giCode": "1069",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 61.8,
+      "carbMatch": {
+        "name": "비스킷/쿠키/크래커",
+        "samples": 1735,
+        "exact": true
+      }
+    },
+    {
+      "name": "초코파이",
+      "gi": 42,
+      "carbs": 20,
+      "serving": "1개(35g)",
+      "category": "빵류",
+      "giCode": "1099",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 57.7,
+      "carbMatch": {
+        "name": "초코파이",
+        "samples": 8,
+        "exact": true
+      }
+    },
+    {
+      "name": "피자",
+      "gi": 80,
+      "carbs": 30,
+      "serving": "1조각(110g)",
+      "category": "빵류",
+      "giCode": "1132",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 27.6,
+      "carbMatch": {
+        "name": "피자",
+        "samples": 881,
+        "exact": true
+      }
+    },
+    {
+      "name": "햄버거",
+      "gi": 66,
+      "carbs": 43,
+      "serving": "1개(200g)",
+      "category": "빵류",
+      "giCode": "1135",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 21.6,
+      "carbMatch": {
+        "name": "햄버거",
+        "samples": 8,
+        "exact": true
+      }
+    },
+    {
+      "name": "핫도그",
+      "gi": 62,
+      "carbs": 35,
+      "serving": "1개(100g)",
+      "category": "빵류",
+      "giCode": "1134",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 35.3,
+      "carbMatch": {
+        "name": "핫도그",
+        "samples": 189,
+        "exact": true
+      }
+    },
+    {
+      "name": "감자",
+      "gi": 64,
+      "carbs": 26,
+      "serving": "1개(150g)",
+      "category": "튀김류",
+      "giCode": "2001",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 17.3,
+      "carbMatch": {
+        "name": "감자",
+        "samples": 16,
+        "exact": true
+      }
+    },
+    {
+      "name": "감자튀김",
+      "gi": 64,
+      "carbs": 39,
+      "serving": "중(110g)",
+      "category": "튀김류",
+      "giCode": "2012",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 35.2,
+      "carbMatch": {
+        "name": "감자튀김",
+        "samples": 7,
+        "exact": true
+      }
+    },
+    {
+      "name": "감자칩",
+      "gi": 60,
+      "carbs": 37,
+      "serving": "1봉(60g)",
+      "category": "튀김류",
+      "giCode": "2010",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 61.3,
+      "carbMatch": {
+        "name": "스낵과자",
+        "samples": 601,
+        "exact": true
+      }
+    },
+    {
+      "name": "고구마",
+      "gi": 63,
+      "carbs": 51,
+      "serving": "1개(150g)",
+      "category": "튀김류",
+      "giCode": "2016",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 33.8,
+      "carbMatch": {
+        "name": "고구마",
+        "samples": 29,
+        "exact": true
+      }
+    },
+    {
+      "name": "당면",
+      "gi": 96,
+      "carbs": 86,
+      "serving": "1인분(100g)",
+      "category": "튀김류",
+      "giCode": "2039",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 86,
+      "carbMatch": {
+        "name": "당면",
+        "samples": 33,
+        "exact": true
+      }
+    },
+    {
+      "name": "스낵과자",
+      "gi": 43,
+      "carbs": 37,
+      "serving": "1봉(60g)",
+      "category": "튀김류",
+      "giCode": "1079",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 61.3,
+      "carbMatch": {
+        "name": "스낵과자",
+        "samples": 601,
+        "exact": true
+      }
+    },
+    {
+      "name": "크로켓",
+      "gi": 57,
+      "carbs": 25,
+      "serving": "1개(70g)",
+      "category": "튀김류",
+      "giCode": "82001",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 35.6,
+      "carbMatch": {
+        "name": "크로켓",
+        "samples": 17,
+        "exact": true
+      }
+    },
+    {
+      "name": "만두",
+      "gi": 28,
+      "carbs": 31,
+      "serving": "5개(125g)",
+      "category": "튀김류",
+      "giCode": "17013",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 25,
+      "carbMatch": {
+        "name": "만두",
+        "samples": 377,
+        "exact": true
+      }
+    },
+    {
+      "name": "팝콘",
+      "gi": 65,
+      "carbs": 20,
+      "serving": "1컵(30g)",
+      "category": "튀김류",
+      "giCode": "1266",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 68,
+      "carbMatch": {
+        "name": "팝콘",
+        "samples": 17,
+        "exact": true
+      }
+    },
+    {
+      "name": "사과",
+      "gi": 36,
+      "carbs": 28,
+      "serving": "1개(200g)",
+      "category": "과일",
+      "giCode": "8090",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 13.9,
+      "carbMatch": {
+        "name": "사과",
+        "samples": 8,
+        "exact": true
+      }
+    },
+    {
+      "name": "바나나",
+      "gi": 62,
+      "carbs": 59,
+      "serving": "1개(120g)",
+      "category": "과일",
+      "giCode": "8063",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 49.3,
+      "carbMatch": {
+        "name": "바나나",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "귤",
+      "gi": 47,
+      "carbs": 10,
+      "serving": "1개(100g)",
+      "category": "과일",
+      "giCode": "8011",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 10.3,
+      "carbMatch": {
+        "name": "귤",
+        "samples": 15,
+        "exact": true
+      }
+    },
+    {
+      "name": "포도",
+      "gi": 43,
+      "carbs": 15,
+      "serving": "1송이(100g)",
+      "category": "과일",
+      "giCode": "8155",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 15.2,
+      "carbMatch": {
+        "name": "포도",
+        "samples": 29,
+        "exact": true
+      }
+    },
+    {
+      "name": "수박",
+      "gi": 80,
+      "carbs": 17,
+      "serving": "1쪽(200g)",
+      "category": "과일",
+      "giCode": "8110",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 8.5,
+      "carbMatch": {
+        "name": "수박",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "키위",
+      "gi": 58,
+      "carbs": 20,
+      "serving": "1개(100g)",
+      "category": "과일",
+      "giCode": "8143",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 19.9,
+      "carbMatch": {
+        "name": "키위",
+        "samples": 4,
+        "exact": true
+      }
+    },
+    {
+      "name": "감",
+      "gi": 50,
+      "carbs": 25,
+      "serving": "1개(150g)",
+      "category": "과일",
+      "giCode": "8001",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 16.6,
+      "carbMatch": {
+        "name": "감",
+        "samples": 10,
+        "exact": true
+      }
+    },
+    {
+      "name": "배",
+      "gi": 38,
+      "carbs": 24,
+      "serving": "1개(200g)",
+      "category": "과일",
+      "giCode": "8065",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 12.2,
+      "carbMatch": {
+        "name": "배",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "파인애플",
+      "gi": 55,
+      "carbs": 16,
+      "serving": "100g",
+      "category": "과일",
+      "giCode": "8144",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 16,
+      "carbMatch": {
+        "name": "파인애플",
+        "samples": 11,
+        "exact": true
+      }
+    },
+    {
+      "name": "딸기",
+      "gi": 40,
+      "carbs": 12,
+      "serving": "10알(150g)",
+      "category": "과일",
+      "giCode": "8036",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 8.3,
+      "carbMatch": {
+        "name": "딸기",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "오렌지",
+      "gi": 40,
+      "carbs": 18,
+      "serving": "1개(150g)",
+      "category": "과일",
+      "giCode": "8121",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 11.8,
+      "carbMatch": {
+        "name": "오렌지",
+        "samples": 4,
+        "exact": true
+      }
+    },
+    {
+      "name": "복숭아",
+      "gi": 34,
+      "carbs": 22,
+      "serving": "1개(180g)",
+      "category": "과일",
+      "giCode": "8076",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 12.1,
+      "carbMatch": {
+        "name": "복숭아",
+        "samples": 4,
+        "exact": true
+      }
+    },
+    {
+      "name": "참외",
+      "gi": 70,
+      "carbs": 21,
+      "serving": "1개(200g)",
+      "category": "과일",
+      "giCode": "8137",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 10.3,
+      "carbMatch": {
+        "name": "참외",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "멜론",
+      "gi": 70,
+      "carbs": 19,
+      "serving": "1쪽(200g)",
+      "category": "과일",
+      "giCode": "8057",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 9.6,
+      "carbMatch": {
+        "name": "멜론",
+        "samples": 3,
+        "exact": true
+      }
+    },
+    {
+      "name": "망고",
+      "gi": 51,
+      "carbs": 14,
+      "serving": "100g",
+      "category": "과일",
+      "giCode": "8048",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 14.3,
+      "carbMatch": {
+        "name": "망고",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "대추",
+      "gi": 62,
+      "carbs": 15,
+      "serving": "10알(30g)",
+      "category": "과일",
+      "giCode": "8032",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 50.1,
+      "carbMatch": {
+        "name": "대추",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "우유",
+      "gi": 30,
+      "carbs": 10,
+      "serving": "1팩(200g)",
+      "category": "음료",
+      "giCode": "13010",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 5,
+      "carbMatch": {
+        "name": "우유",
+        "samples": 13,
+        "exact": true
+      }
+    },
+    {
+      "name": "요구르트(액상)",
+      "gi": 34,
+      "carbs": 22,
+      "serving": "1병(150g)",
+      "category": "음료",
+      "giCode": "13028",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 14.8,
+      "carbMatch": {
+        "name": "요구르트(액상)",
+        "samples": 9,
+        "exact": true
+      }
+    },
+    {
+      "name": "아이스크림",
+      "gi": 38,
+      "carbs": 27,
+      "serving": "1개(100g)",
+      "category": "기타",
+      "giCode": "13022",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 27,
+      "carbMatch": {
+        "name": "아이스크림",
+        "samples": 228,
+        "exact": true
+      }
+    },
+    {
+      "name": "두유",
+      "gi": 44,
+      "carbs": 6,
+      "serving": "1팩(190g)",
+      "category": "음료",
+      "giCode": "4023",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 3,
+      "carbMatch": {
+        "name": "두유",
+        "samples": 7,
+        "exact": true
+      }
+    },
+    {
+      "name": "콜라",
+      "gi": 63,
+      "carbs": 23,
+      "serving": "1캔(250g)",
+      "category": "음료",
+      "giCode": "15022",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 9.2,
+      "carbMatch": {
+        "name": "탄산음료",
+        "samples": 9,
+        "exact": true
+      }
+    },
+    {
+      "name": "사이다",
+      "gi": 63,
+      "carbs": 23,
+      "serving": "1캔(250g)",
+      "category": "음료",
+      "giCode": "15019",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 9.2,
+      "carbMatch": {
+        "name": "탄산음료",
+        "samples": 9,
+        "exact": true
+      }
+    },
+    {
+      "name": "탄산음료(기타)",
+      "gi": 63,
+      "carbs": 23,
+      "serving": "1캔(250g)",
+      "category": "음료",
+      "giCode": "15013",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 9.2,
+      "carbMatch": {
+        "name": "탄산음료",
+        "samples": 9,
+        "exact": true
+      }
+    },
+    {
+      "name": "과일음료",
+      "gi": 48,
+      "carbs": 34,
+      "serving": "1병(300g)",
+      "category": "음료",
+      "giCode": "15002",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 11.3,
+      "carbMatch": {
+        "name": "과·채음료",
+        "samples": 79,
+        "exact": true
+      }
+    },
+    {
+      "name": "채소음료",
+      "gi": 43,
+      "carbs": 23,
+      "serving": "1병(200g)",
+      "category": "음료",
+      "giCode": "15001",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 11.3,
+      "carbMatch": {
+        "name": "과·채음료",
+        "samples": 79,
+        "exact": true
+      }
+    },
+    {
+      "name": "식혜",
+      "gi": 92,
+      "carbs": 39,
+      "serving": "1캔(238g)",
+      "category": "음료",
+      "giCode": "15011",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 16.2,
+      "carbMatch": {
+        "name": "식혜",
+        "samples": 3,
+        "exact": true
+      }
+    },
+    {
+      "name": "코코아음료",
+      "gi": 46,
+      "carbs": 13,
+      "serving": "1잔(분말 20g)",
+      "category": "음료",
+      "giCode": "95005",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 64,
+      "carbMatch": {
+        "name": "코코아",
+        "samples": 25,
+        "exact": true
+      }
+    },
+    {
+      "name": "설탕",
+      "gi": 65,
+      "carbs": 12,
+      "serving": "1스푼(12g)",
+      "category": "기타",
+      "giCode": "3024",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 100,
+      "carbMatch": {
+        "name": "설탕",
+        "samples": 31,
+        "exact": true
+      }
+    },
+    {
+      "name": "꿀",
+      "gi": 74,
+      "carbs": 18,
+      "serving": "1스푼(21g)",
+      "category": "기타",
+      "giCode": "3004",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 84.1,
+      "carbMatch": {
+        "name": "꿀",
+        "samples": 10,
+        "exact": true
+      }
+    },
+    {
+      "name": "초콜릿",
+      "gi": 32,
+      "carbs": 19,
+      "serving": "1개(40g)",
+      "category": "기타",
+      "giCode": "3041",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 48.5,
+      "carbMatch": {
+        "name": "초콜릿",
+        "samples": 1695,
+        "exact": true
+      }
+    },
+    {
+      "name": "젤리",
+      "gi": 53,
+      "carbs": 23,
+      "serving": "1봉(30g)",
+      "category": "기타",
+      "giCode": "3040",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 76.4,
+      "carbMatch": {
+        "name": "젤리",
+        "samples": 1178,
+        "exact": true
+      }
+    },
+    {
+      "name": "사탕",
+      "gi": 66,
+      "carbs": 14,
+      "serving": "3알(15g)",
+      "category": "기타",
+      "giCode": "3015",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 93,
+      "carbMatch": {
+        "name": "사탕",
+        "samples": 877,
+        "exact": true
+      }
+    },
+    {
+      "name": "카라멜",
+      "gi": 53,
+      "carbs": 16,
+      "serving": "5알(20g)",
+      "category": "기타",
+      "giCode": "3051",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 77.8,
+      "carbMatch": {
+        "name": "캐러멜",
+        "samples": 129,
+        "exact": true
+      }
+    },
+    {
+      "name": "양갱",
+      "gi": 48,
+      "carbs": 42,
+      "serving": "1개(60g)",
+      "category": "기타",
+      "giCode": "3036",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 69.8,
+      "carbMatch": {
+        "name": "양갱",
+        "samples": 66,
+        "exact": true
+      }
+    },
+    {
+      "name": "푸딩",
+      "gi": 36,
+      "carbs": 23,
+      "serving": "1개(90g)",
+      "category": "기타",
+      "giCode": "1130",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 25,
+      "carbMatch": {
+        "name": "푸딩",
+        "samples": 21,
+        "exact": true
+      }
+    },
+    {
+      "name": "완두콩",
+      "gi": 53,
+      "carbs": 14,
+      "serving": "1/2컵(60g)",
+      "category": "기타",
+      "giCode": "4033",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 23.9,
+      "carbMatch": {
+        "name": "완두",
+        "samples": 4,
+        "exact": true
+      }
+    },
+    {
+      "name": "땅콩",
+      "gi": 13,
+      "carbs": 7,
+      "serving": "한 줌(30g)",
+      "category": "기타",
+      "giCode": "5014",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 22.7,
+      "carbMatch": {
+        "name": "땅콩",
+        "samples": 8,
+        "exact": true
+      }
+    },
+    {
+      "name": "밤",
+      "gi": 63,
+      "carbs": 21,
+      "serving": "5알(60g)",
+      "category": "기타",
+      "giCode": "5028",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 35.1,
+      "carbMatch": {
+        "name": "밤",
+        "samples": 10,
+        "exact": true
+      }
+    },
+    {
+      "name": "아몬드",
+      "gi": 24,
+      "carbs": 6,
+      "serving": "한 줌(30g)",
+      "category": "기타",
+      "giCode": "5048",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 20.3,
+      "carbMatch": {
+        "name": "아몬드",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "호두",
+      "gi": 24,
+      "carbs": 3,
+      "serving": "한 줌(30g)",
+      "category": "기타",
+      "giCode": "5077",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 9.8,
+      "carbMatch": {
+        "name": "호두",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "당근",
+      "gi": 39,
+      "carbs": 7,
+      "serving": "1개(100g)",
+      "category": "기타",
+      "giCode": "6096",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 7,
+      "carbMatch": {
+        "name": "당근",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "연근",
+      "gi": 33,
+      "carbs": 16,
+      "serving": "100g",
+      "category": "기타",
+      "giCode": "6298",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 15.8,
+      "carbMatch": {
+        "name": "연근",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "옥수수",
+      "gi": 52,
+      "carbs": 49,
+      "serving": "1개(150g)",
+      "category": "기타",
+      "giCode": "1253",
+      "giSource": "kjn2012",
+      "carbSource": "mfds",
+      "carbPer100g": 32.8,
+      "carbMatch": {
+        "name": "옥수수",
+        "samples": 48,
+        "exact": true
+      }
+    },
+    {
+      "name": "김밥",
+      "gi": 72,
+      "carbs": 57,
+      "serving": "1줄(230g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "밥(1197)",
+      "carbSource": "mfds",
+      "carbPer100g": 24.6,
+      "carbMatch": {
+        "name": "김밥",
+        "samples": 13,
+        "exact": true
+      }
+    },
+    {
+      "name": "떡볶이",
+      "gi": 82,
+      "carbs": 105,
+      "serving": "1인분(250g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "가래떡/백설기(1211)",
+      "carbSource": "mfds",
+      "carbPer100g": 41.8,
+      "carbMatch": {
+        "name": "떡볶이",
+        "samples": 121,
+        "exact": true
+      }
+    },
+    {
+      "name": "비빔밥",
+      "gi": 72,
+      "carbs": 90,
+      "serving": "1그릇(400g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "밥(1197)",
+      "carbSource": "mfds",
+      "carbPer100g": 22.5,
+      "carbMatch": {
+        "name": "비빔밥",
+        "samples": 9,
+        "exact": true
+      }
+    },
+    {
+      "name": "김치찌개",
+      "gi": 39,
+      "carbs": 12,
+      "serving": "1인분(400g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "채소류(당근 6096)",
+      "carbSource": "mfds",
+      "carbPer100g": 3,
+      "carbMatch": {
+        "name": "김치찌개",
+        "samples": 9,
+        "exact": true
+      }
+    },
+    {
+      "name": "치킨",
+      "gi": 57,
+      "carbs": 40,
+      "serving": "3조각(150g)",
+      "category": "튀김류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "크로켓(82001) 튀김옷",
+      "carbSource": "mfds",
+      "carbPer100g": 26.6,
+      "carbMatch": {
+        "name": "치킨",
+        "samples": 60,
+        "exact": true
+      }
+    },
+    {
+      "name": "떡국",
+      "gi": 82,
+      "carbs": 65,
+      "serving": "1그릇(400g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "가래떡/백설기(1211)",
+      "carbSource": "mfds",
+      "carbPer100g": 16.4,
+      "carbMatch": {
+        "name": "떡국",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "아메리카노",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1잔",
+      "category": "음료",
+      "giSource": "kjn2012",
+      "giBasedOn": "논문상 GI 0 식품군",
+      "carbSource": "gi-zero"
+    }
+  ]
+}
