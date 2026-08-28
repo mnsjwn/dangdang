@@ -19,26 +19,26 @@
     {
       "label": "밥류",
       "gi": 72,
-      "carbs": 63,
-      "basis": "15개 항목 평균"
+      "carbs": 62,
+      "basis": "24개 항목 평균"
     },
     {
       "label": "면류",
       "gi": 52,
-      "carbs": 56,
-      "basis": "9개 항목 평균"
+      "carbs": 66,
+      "basis": "15개 항목 평균"
     },
     {
       "label": "빵류",
-      "gi": 61,
-      "carbs": 31,
-      "basis": "13개 항목 평균"
+      "gi": 62,
+      "carbs": 34,
+      "basis": "25개 항목 평균"
     },
     {
       "label": "튀김류",
       "gi": 60,
-      "carbs": 39,
-      "basis": "10개 항목 평균"
+      "carbs": 38,
+      "basis": "13개 항목 평균"
     },
     {
       "label": "과일",
@@ -48,15 +48,15 @@
     },
     {
       "label": "음료",
-      "gi": 53,
-      "carbs": 22,
-      "basis": "10개 항목 평균"
+      "gi": 51,
+      "carbs": 21,
+      "basis": "11개 항목 평균"
     },
     {
       "label": "기타",
-      "gi": 45,
+      "gi": 30,
       "carbs": 18,
-      "basis": "18개 항목 평균"
+      "basis": "34개 항목 평균"
     }
   ],
   "foods": [
@@ -1437,18 +1437,18 @@
       }
     },
     {
-      "name": "떡볶이",
-      "gi": 82,
-      "carbs": 105,
-      "serving": "1인분(250g)",
+      "name": "삼각김밥",
+      "gi": 72,
+      "carbs": 32,
+      "serving": "1개(100g)",
       "category": "밥류",
       "giSource": "kjn2012-derived",
-      "giBasedOn": "가래떡/백설기(1211)",
+      "giBasedOn": "밥(1197)",
       "carbSource": "mfds",
-      "carbPer100g": 41.8,
+      "carbPer100g": 32.3,
       "carbMatch": {
-        "name": "떡볶이",
-        "samples": 121,
+        "name": "삼각김밥",
+        "samples": 4,
         "exact": true
       }
     },
@@ -1469,34 +1469,130 @@
       }
     },
     {
-      "name": "김치찌개",
-      "gi": 39,
-      "carbs": 12,
-      "serving": "1인분(400g)",
-      "category": "기타",
+      "name": "국밥",
+      "gi": 72,
+      "carbs": 40,
+      "serving": "1그릇(450g)",
+      "category": "밥류",
       "giSource": "kjn2012-derived",
-      "giBasedOn": "채소류(당근 6096)",
+      "giBasedOn": "밥(1197)",
       "carbSource": "mfds",
-      "carbPer100g": 3,
+      "carbPer100g": 8.9,
       "carbMatch": {
-        "name": "김치찌개",
+        "name": "국밥",
+        "samples": 8,
+        "exact": true
+      }
+    },
+    {
+      "name": "덮밥",
+      "gi": 72,
+      "carbs": 75,
+      "serving": "1그릇(400g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "밥(1197)",
+      "carbSource": "mfds",
+      "carbPer100g": 18.7,
+      "carbMatch": {
+        "name": "덮밥",
+        "samples": 10,
+        "exact": true
+      }
+    },
+    {
+      "name": "볶음밥",
+      "gi": 80,
+      "carbs": 68,
+      "serving": "1접시(300g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "볶음밥/덮밥(17017)",
+      "carbSource": "mfds",
+      "carbPer100g": 22.7,
+      "carbMatch": {
+        "name": "볶음밥",
+        "samples": 18,
+        "exact": true
+      }
+    },
+    {
+      "name": "초밥",
+      "gi": 72,
+      "carbs": 60,
+      "serving": "8피스(200g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "밥(1197)",
+      "carbSource": "mfds",
+      "carbPer100g": 29.8,
+      "carbMatch": {
+        "name": "초밥",
+        "samples": 11,
+        "exact": true
+      }
+    },
+    {
+      "name": "쌀죽(흰죽)",
+      "gi": 68,
+      "carbs": 34,
+      "serving": "1그릇(300g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "죽(1205)",
+      "carbSource": "mfds",
+      "carbPer100g": 11.5,
+      "carbMatch": {
+        "name": "쌀죽(흰죽)",
         "samples": 9,
         "exact": true
       }
     },
     {
-      "name": "치킨",
-      "gi": 57,
-      "carbs": 40,
-      "serving": "3조각(150g)",
-      "category": "튀김류",
+      "name": "카레라이스",
+      "gi": 72,
+      "carbs": 83,
+      "serving": "1그릇(400g)",
+      "category": "밥류",
       "giSource": "kjn2012-derived",
-      "giBasedOn": "크로켓(82001) 튀김옷",
+      "giBasedOn": "밥(1197)",
       "carbSource": "mfds",
-      "carbPer100g": 26.6,
+      "carbPer100g": 20.7,
       "carbMatch": {
-        "name": "치킨",
-        "samples": 60,
+        "name": "카레라이스",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "오므라이스",
+      "gi": 72,
+      "carbs": 72,
+      "serving": "1접시(350g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "밥(1197)",
+      "carbSource": "mfds",
+      "carbPer100g": 20.5,
+      "carbMatch": {
+        "name": "오므라이스",
+        "samples": 2,
+        "exact": true
+      }
+    },
+    {
+      "name": "떡볶이",
+      "gi": 82,
+      "carbs": 105,
+      "serving": "1인분(250g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "가래떡/백설기(1211)",
+      "carbSource": "mfds",
+      "carbPer100g": 41.8,
+      "carbMatch": {
+        "name": "떡볶이",
+        "samples": 121,
         "exact": true
       }
     },
@@ -1517,6 +1613,656 @@
       }
     },
     {
+      "name": "떡만두국",
+      "gi": 82,
+      "carbs": 70,
+      "serving": "1그릇(450g)",
+      "category": "밥류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "가래떡/백설기(1211)",
+      "carbSource": "mfds",
+      "carbPer100g": 15.6,
+      "carbMatch": {
+        "name": "떡만두국",
+        "samples": 4,
+        "exact": true
+      }
+    },
+    {
+      "name": "라면",
+      "gi": 50,
+      "carbs": 76,
+      "serving": "1봉지(120g)",
+      "category": "면류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "라면(1031)",
+      "carbSource": "mfds",
+      "carbPer100g": 63.6,
+      "carbMatch": {
+        "name": "라면",
+        "samples": 246,
+        "exact": true
+      }
+    },
+    {
+      "name": "국수",
+      "gi": 48,
+      "carbs": 68,
+      "serving": "1인분(건면 100g)",
+      "category": "면류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "국수, 삶은 것(1030)",
+      "carbSource": "mfds",
+      "carbPer100g": 68.3,
+      "carbMatch": {
+        "name": "국수",
+        "samples": 176,
+        "exact": true
+      }
+    },
+    {
+      "name": "냉면",
+      "gi": 59,
+      "carbs": 46,
+      "serving": "1그릇(350g)",
+      "category": "면류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "메밀국수/냉면(1007)",
+      "carbSource": "mfds",
+      "carbPer100g": 13.2,
+      "carbMatch": {
+        "name": "냉면",
+        "samples": 6,
+        "exact": true
+      }
+    },
+    {
+      "name": "칼국수",
+      "gi": 62,
+      "carbs": 57,
+      "serving": "1인분(생면 100g)",
+      "category": "면류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "칼국수, 생면(1050)",
+      "carbSource": "mfds",
+      "carbPer100g": 57.3,
+      "carbMatch": {
+        "name": "칼국수",
+        "samples": 62,
+        "exact": true
+      }
+    },
+    {
+      "name": "짬뽕",
+      "gi": 50,
+      "carbs": 35,
+      "serving": "1그릇(400g)",
+      "category": "면류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "자장면(1042)",
+      "carbSource": "mfds",
+      "carbPer100g": 8.8,
+      "carbMatch": {
+        "name": "짬뽕",
+        "samples": 8,
+        "exact": true
+      }
+    },
+    {
+      "name": "파스타",
+      "gi": 42,
+      "carbs": 210,
+      "serving": "1접시(300g)",
+      "category": "면류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "스파게티(17025)",
+      "carbSource": "mfds",
+      "carbPer100g": 70,
+      "carbMatch": {
+        "name": "파스타",
+        "samples": 866,
+        "exact": true
+      }
+    },
+    {
+      "name": "마라탕",
+      "gi": 5,
+      "carbs": 26,
+      "serving": "1그릇(500g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 5.1,
+      "carbMatch": {
+        "name": "마라탕",
+        "samples": 3,
+        "exact": true
+      }
+    },
+    {
+      "name": "버거",
+      "gi": 66,
+      "carbs": 48,
+      "serving": "1개(200g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "햄버거(1135)",
+      "carbSource": "mfds",
+      "carbPer100g": 23.8,
+      "carbMatch": {
+        "name": "버거",
+        "samples": 425,
+        "exact": true
+      }
+    },
+    {
+      "name": "모닝빵",
+      "gi": 61,
+      "carbs": 20,
+      "serving": "1개(40g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "빵, 기타(1053)",
+      "carbSource": "mfds",
+      "carbPer100g": 49,
+      "carbMatch": {
+        "name": "모닝빵",
+        "samples": 69,
+        "exact": true
+      }
+    },
+    {
+      "name": "소보로빵",
+      "gi": 61,
+      "carbs": 49,
+      "serving": "1개(90g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "빵, 기타(1053)",
+      "carbSource": "mfds",
+      "carbPer100g": 54.7,
+      "carbMatch": {
+        "name": "소보로빵",
+        "samples": 61,
+        "exact": true
+      }
+    },
+    {
+      "name": "크림빵",
+      "gi": 62,
+      "carbs": 38,
+      "serving": "1개(90g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "잼빵/팥빵/크림빵(1083)",
+      "carbSource": "mfds",
+      "carbPer100g": 42,
+      "carbMatch": {
+        "name": "크림빵",
+        "samples": 175,
+        "exact": true
+      }
+    },
+    {
+      "name": "팥빵",
+      "gi": 62,
+      "carbs": 41,
+      "serving": "1개(90g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "잼빵/팥빵/크림빵(1083)",
+      "carbSource": "mfds",
+      "carbPer100g": 45.6,
+      "carbMatch": {
+        "name": "팥빵",
+        "samples": 38,
+        "exact": true
+      }
+    },
+    {
+      "name": "소금빵",
+      "gi": 61,
+      "carbs": 31,
+      "serving": "1개(70g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "빵, 기타(1053)",
+      "carbSource": "mfds",
+      "carbPer100g": 44.2,
+      "carbMatch": {
+        "name": "소금빵",
+        "samples": 80,
+        "exact": true
+      }
+    },
+    {
+      "name": "마늘빵",
+      "gi": 61,
+      "carbs": 31,
+      "serving": "1개(60g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "빵, 기타(1053)",
+      "carbSource": "mfds",
+      "carbPer100g": 52.4,
+      "carbMatch": {
+        "name": "마늘빵",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "치즈빵",
+      "gi": 61,
+      "carbs": 36,
+      "serving": "1개(90g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "빵, 기타(1053)",
+      "carbSource": "mfds",
+      "carbPer100g": 40.2,
+      "carbMatch": {
+        "name": "치즈빵",
+        "samples": 10,
+        "exact": true
+      }
+    },
+    {
+      "name": "피자빵",
+      "gi": 61,
+      "carbs": 32,
+      "serving": "1개(100g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "빵, 기타(1053)",
+      "carbSource": "mfds",
+      "carbPer100g": 31.8,
+      "carbMatch": {
+        "name": "피자빵",
+        "samples": 22,
+        "exact": true
+      }
+    },
+    {
+      "name": "토스트",
+      "gi": 65,
+      "carbs": 43,
+      "serving": "1개(100g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "식빵(1084)",
+      "carbSource": "mfds",
+      "carbPer100g": 43.2,
+      "carbMatch": {
+        "name": "토스트",
+        "samples": 6,
+        "exact": true
+      }
+    },
+    {
+      "name": "와플",
+      "gi": 61,
+      "carbs": 40,
+      "serving": "1개(90g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "빵, 기타(1053)",
+      "carbSource": "mfds",
+      "carbPer100g": 43.9,
+      "carbMatch": {
+        "name": "와플",
+        "samples": 86,
+        "exact": true
+      }
+    },
+    {
+      "name": "베이글",
+      "gi": 65,
+      "carbs": 44,
+      "serving": "1개(90g)",
+      "category": "빵류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "식빵(1084)",
+      "carbSource": "mfds",
+      "carbPer100g": 49,
+      "carbMatch": {
+        "name": "베이글",
+        "samples": 494,
+        "exact": true
+      }
+    },
+    {
+      "name": "치킨",
+      "gi": 57,
+      "carbs": 40,
+      "serving": "3조각(150g)",
+      "category": "튀김류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "크로켓(82001) 튀김옷",
+      "carbSource": "mfds",
+      "carbPer100g": 26.6,
+      "carbMatch": {
+        "name": "치킨",
+        "samples": 60,
+        "exact": true
+      }
+    },
+    {
+      "name": "닭튀김",
+      "gi": 57,
+      "carbs": 20,
+      "serving": "3조각(150g)",
+      "category": "튀김류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "크로켓(82001) 튀김옷",
+      "carbSource": "mfds",
+      "carbPer100g": 13,
+      "carbMatch": {
+        "name": "닭튀김",
+        "samples": 44,
+        "exact": true
+      }
+    },
+    {
+      "name": "돈가스",
+      "gi": 57,
+      "carbs": 33,
+      "serving": "1인분(200g)",
+      "category": "튀김류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "크로켓(82001) 튀김옷",
+      "carbSource": "mfds",
+      "carbPer100g": 16.7,
+      "carbMatch": {
+        "name": "돈가스",
+        "samples": 7,
+        "exact": true
+      }
+    },
+    {
+      "name": "탕수육",
+      "gi": 68,
+      "carbs": 47,
+      "serving": "1인분(200g)",
+      "category": "튀김류",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(감자전분 67.7)",
+      "carbSource": "mfds",
+      "carbPer100g": 23.6,
+      "carbMatch": {
+        "name": "탕수육",
+        "samples": 16,
+        "exact": true
+      }
+    },
+    {
+      "name": "닭갈비",
+      "gi": 5,
+      "carbs": 34,
+      "serving": "1인분(300g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 11.2,
+      "carbMatch": {
+        "name": "닭볶음(닭갈비)",
+        "samples": 8,
+        "exact": true
+      }
+    },
+    {
+      "name": "제육볶음",
+      "gi": 5,
+      "carbs": 23,
+      "serving": "1인분(250g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 9.1,
+      "carbMatch": {
+        "name": "돼지고기볶음",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "불고기",
+      "gi": 5,
+      "carbs": 17,
+      "serving": "1인분(250g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 6.7,
+      "carbMatch": {
+        "name": "소고기볶음",
+        "samples": 4,
+        "exact": true
+      }
+    },
+    {
+      "name": "갈비구이",
+      "gi": 5,
+      "carbs": 18,
+      "serving": "1인분(250g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 7.1,
+      "carbMatch": {
+        "name": "갈비구이",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "순대",
+      "gi": 68,
+      "carbs": 32,
+      "serving": "1인분(150g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(감자전분 67.7)",
+      "carbSource": "mfds",
+      "carbPer100g": 21.3,
+      "carbMatch": {
+        "name": "순대",
+        "samples": 152,
+        "exact": true
+      }
+    },
+    {
+      "name": "족발",
+      "gi": 5,
+      "carbs": 1,
+      "serving": "1인분(200g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 0.5,
+      "carbMatch": {
+        "name": "족발",
+        "samples": 4,
+        "exact": true
+      }
+    },
+    {
+      "name": "함박스테이크",
+      "gi": 73,
+      "carbs": 21,
+      "serving": "1인분(200g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(곡류 72.6)",
+      "carbSource": "mfds",
+      "carbPer100g": 10.4,
+      "carbMatch": {
+        "name": "함박스테이크",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "스테이크",
+      "gi": 5,
+      "carbs": 14,
+      "serving": "1인분(200g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 7.2,
+      "carbMatch": {
+        "name": "스테이크",
+        "samples": 11,
+        "exact": true
+      }
+    },
+    {
+      "name": "된장찌개",
+      "gi": 5,
+      "carbs": 16,
+      "serving": "1인분(400g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 3.9,
+      "carbMatch": {
+        "name": "된장찌개",
+        "samples": 9,
+        "exact": true
+      }
+    },
+    {
+      "name": "김치찌개",
+      "gi": 5,
+      "carbs": 12,
+      "serving": "1인분(400g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 3,
+      "carbMatch": {
+        "name": "김치찌개",
+        "samples": 9,
+        "exact": true
+      }
+    },
+    {
+      "name": "순두부찌개",
+      "gi": 33,
+      "carbs": 12,
+      "serving": "1인분(400g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(두류 33.3)",
+      "carbSource": "mfds",
+      "carbPer100g": 2.9,
+      "carbMatch": {
+        "name": "순두부찌개",
+        "samples": 6,
+        "exact": true
+      }
+    },
+    {
+      "name": "부대찌개",
+      "gi": 5,
+      "carbs": 39,
+      "serving": "1인분(450g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 8.6,
+      "carbMatch": {
+        "name": "부대찌개",
+        "samples": 7,
+        "exact": true
+      }
+    },
+    {
+      "name": "된장국",
+      "gi": 5,
+      "carbs": 7,
+      "serving": "1그릇(300g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 2.2,
+      "carbMatch": {
+        "name": "된장국",
+        "samples": 19,
+        "exact": true
+      }
+    },
+    {
+      "name": "미역국",
+      "gi": 5,
+      "carbs": 3,
+      "serving": "1그릇(300g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 0.9,
+      "carbMatch": {
+        "name": "미역국",
+        "samples": 10,
+        "exact": true
+      }
+    },
+    {
+      "name": "해장국",
+      "gi": 5,
+      "carbs": 7,
+      "serving": "1그릇(400g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 1.7,
+      "carbMatch": {
+        "name": "해장국",
+        "samples": 5,
+        "exact": true
+      }
+    },
+    {
+      "name": "매운탕",
+      "gi": 5,
+      "carbs": 10,
+      "serving": "1그릇(400g)",
+      "category": "기타",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "논문 Table 3 식품군 평균 GI(채소류 4.9)",
+      "carbSource": "mfds",
+      "carbPer100g": 2.4,
+      "carbMatch": {
+        "name": "매운탕",
+        "samples": 10,
+        "exact": true
+      }
+    },
+    {
+      "name": "달걀찜",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1인분",
+      "category": "기타",
+      "giSource": "kjn2012",
+      "giBasedOn": "논문상 GI 0 식품군(난류)",
+      "carbSource": "gi-zero"
+    },
+    {
       "name": "아메리카노",
       "gi": 0,
       "carbs": 0,
@@ -1525,6 +2271,22 @@
       "giSource": "kjn2012",
       "giBasedOn": "논문상 GI 0 식품군",
       "carbSource": "gi-zero"
+    },
+    {
+      "name": "카페라떼",
+      "gi": 31,
+      "carbs": 15,
+      "serving": "1잔(300g)",
+      "category": "음료",
+      "giSource": "kjn2012-derived",
+      "giBasedOn": "우유(13010)",
+      "carbSource": "mfds",
+      "carbPer100g": 5,
+      "carbMatch": {
+        "name": "우유",
+        "samples": 13,
+        "exact": true
+      }
     },
     {
       "name": "양상추",

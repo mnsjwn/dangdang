@@ -30,11 +30,24 @@ export function totalGL(items) {
   return Math.round(items.reduce((a, i) => a + itemGL(i.gi, i.carbs, i.serv), 0));
 }
 
-/** 총 GL → 졸음 위험 등급 (디자인 색상값과 일치) */
+/**
+ * 총 GL → 졸음 위험 등급.
+ *
+ * 기준선은 인용 중인 논문의 한국인 데이터에 맞춰 잡았다.
+ * 논문(한국영양학회지 2012;45(1):80-93)에서 20~29세의 하루 식사혈당부하(DGL)
+ * 평균은 166.1이고, 하루 세 끼로 나누면 한 끼 약 55다.
+ * 그래서 "한 끼 평균(55) 이상"을 높음으로 본다.
+ *
+ * 국제 기준(1인분당 저 10 이하 / 중 11~19 / 고 20 이상)은 개별 식품 한 접시를
+ * 재는 값이라, 여러 음식을 합산하는 한 끼 단위에 그대로 쓰면 밥 한 공기(GL 58)
+ * 만으로도 최고 등급이 되어 등급이 변별력을 잃는다.
+ */
+export const GL_BANDS = { medium: 30, high: 55 };
+
 export function glMeta(gl) {
-  if (gl < 20)
+  if (gl < GL_BANDS.medium)
     return { color: "#3D8F63", label: "낮아요", sub: "이 식사로는 졸음이 오지 않아요" };
-  if (gl < 40)
+  if (gl < GL_BANDS.high)
     return { color: "#C98A16", label: "보통이에요", sub: "10분만 걸으면 산뜻하게 넘어가요" };
   return { color: "#DE5232", label: "높아요", sub: "그냥 앉아 있으면 30분 뒤 졸음이 몰려와요" };
 }

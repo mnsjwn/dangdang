@@ -82,16 +82,90 @@ const SERVING = {
 };
 
 // ── 논문에 없는 복합요리 ────────────────────────────────
-// 2012년 논문 부록에 단독 항목이 없어 주재료 GI를 적용하고 근거를 남긴다.
-// 탄수화물은 식약처에 실제 항목이 있으므로 그대로 가져온다.
+// 2012년 논문 부록에는 단독 항목이 없는 한국 복합요리들이다.
+// GI는 (1) 논문 부록의 주재료 값이나 (2) 논문 Table 3의 식품군별 평균 GI를
+// 적용하고, 어느 쪽을 썼는지 basedOn에 남긴다.
+// 탄수화물은 식약처 대표식품명으로 실제 값을 가져온다.
+
+// 논문 Table 3 — 식품군별 가중평균 GI (포도당 기준)
+const GROUP_GI = {
+  곡류: 72.6, 감자전분: 67.7, 당류: 65.7, 두류: 33.3,
+  과실류: 45.8, 채소류: 4.9, 우유류: 31.1,
+};
+const G = (k) => Math.round(GROUP_GI[k]);
+const BY = (k) => `논문 Table 3 식품군 평균 GI(${k} ${GROUP_GI[k]})`;
+
 const COMPOSITES = [
+  // ── 밥 기반 ──
   { name: "김밥", gi: 72, basedOn: "밥(1197)", g: 230, label: "1줄", cat: "밥류" },
-  { name: "떡볶이", gi: 82, basedOn: "가래떡/백설기(1211)", g: 250, label: "1인분", cat: "밥류" },
+  { name: "삼각김밥", gi: 72, basedOn: "밥(1197)", g: 100, label: "1개", cat: "밥류" },
   { name: "비빔밥", gi: 72, basedOn: "밥(1197)", g: 400, label: "1그릇", cat: "밥류" },
-  { name: "김치찌개", gi: 39, basedOn: "채소류(당근 6096)", g: 400, label: "1인분", cat: "기타" },
-  { name: "치킨", gi: 57, basedOn: "크로켓(82001) 튀김옷", g: 150, label: "3조각", cat: "튀김류" },
+  { name: "국밥", gi: 72, basedOn: "밥(1197)", g: 450, label: "1그릇", cat: "밥류" },
+  { name: "덮밥", gi: 72, basedOn: "밥(1197)", g: 400, label: "1그릇", cat: "밥류" },
+  { name: "볶음밥", gi: 80, basedOn: "볶음밥/덮밥(17017)", g: 300, label: "1접시", cat: "밥류" },
+  { name: "초밥", gi: 72, basedOn: "밥(1197)", g: 200, label: "8피스", cat: "밥류" },
+  { name: "쌀죽(흰죽)", gi: 68, basedOn: "죽(1205)", g: 300, label: "1그릇", cat: "밥류" },
+  { name: "카레라이스", gi: 72, basedOn: "밥(1197)", g: 400, label: "1그릇", cat: "밥류" },
+  { name: "오므라이스", gi: 72, basedOn: "밥(1197)", g: 350, label: "1접시", cat: "밥류" },
+
+  // ── 떡 ──
+  { name: "떡볶이", gi: 82, basedOn: "가래떡/백설기(1211)", g: 250, label: "1인분", cat: "밥류" },
   { name: "떡국", gi: 82, basedOn: "가래떡/백설기(1211)", g: 400, label: "1그릇", cat: "밥류" },
+  { name: "떡만두국", gi: 82, basedOn: "가래떡/백설기(1211)", g: 450, label: "1그릇", cat: "밥류" },
+
+  // ── 면 ──
+  { name: "라면", gi: 50, basedOn: "라면(1031)", g: 120, label: "1봉지", cat: "면류" },
+  { name: "국수", gi: 48, basedOn: "국수, 삶은 것(1030)", g: 100, label: "1인분(건면 100g)", cat: "면류" },
+  { name: "냉면", gi: 59, basedOn: "메밀국수/냉면(1007)", g: 350, label: "1그릇", cat: "면류" },
+  { name: "칼국수", gi: 62, basedOn: "칼국수, 생면(1050)", g: 100, label: "1인분(생면 100g)", cat: "면류" },
+  { name: "짬뽕", gi: 50, basedOn: "자장면(1042)", g: 400, label: "1그릇", cat: "면류" },
+  { name: "파스타", gi: 42, basedOn: "스파게티(17025)", g: 300, label: "1접시", cat: "면류" },
+  { name: "마라탕", gi: G("채소류"), basedOn: BY("채소류"), g: 500, label: "1그릇", cat: "기타" },
+
+  // ── 빵·간식 ──
+  { name: "버거", gi: 66, basedOn: "햄버거(1135)", g: 200, label: "1개", cat: "빵류" },
+  { name: "모닝빵", gi: 61, basedOn: "빵, 기타(1053)", g: 40, label: "1개", cat: "빵류" },
+  { name: "소보로빵", gi: 61, basedOn: "빵, 기타(1053)", g: 90, label: "1개", cat: "빵류" },
+  { name: "크림빵", gi: 62, basedOn: "잼빵/팥빵/크림빵(1083)", g: 90, label: "1개", cat: "빵류" },
+  { name: "팥빵", gi: 62, basedOn: "잼빵/팥빵/크림빵(1083)", g: 90, label: "1개", cat: "빵류" },
+  { name: "소금빵", gi: 61, basedOn: "빵, 기타(1053)", g: 70, label: "1개", cat: "빵류" },
+  { name: "마늘빵", gi: 61, basedOn: "빵, 기타(1053)", g: 60, label: "1개", cat: "빵류" },
+  { name: "치즈빵", gi: 61, basedOn: "빵, 기타(1053)", g: 90, label: "1개", cat: "빵류" },
+  { name: "피자빵", gi: 61, basedOn: "빵, 기타(1053)", g: 100, label: "1개", cat: "빵류" },
+  { name: "토스트", gi: 65, basedOn: "식빵(1084)", g: 100, label: "1개", cat: "빵류" },
+  { name: "와플", gi: 61, basedOn: "빵, 기타(1053)", g: 90, label: "1개", cat: "빵류" },
+  { name: "베이글", gi: 65, basedOn: "식빵(1084)", g: 90, label: "1개", cat: "빵류" },
+
+  // ── 튀김·고기 ──
+  { name: "치킨", gi: 57, basedOn: "크로켓(82001) 튀김옷", g: 150, label: "3조각", cat: "튀김류" },
+  { name: "닭튀김", gi: 57, basedOn: "크로켓(82001) 튀김옷", g: 150, label: "3조각", cat: "튀김류" },
+  { name: "돈가스", gi: 57, basedOn: "크로켓(82001) 튀김옷", g: 200, label: "1인분", cat: "튀김류" },
+  { name: "탕수육", gi: G("감자전분"), basedOn: BY("감자전분"), g: 200, label: "1인분", cat: "튀김류" },
+  { name: "닭갈비", gi: G("채소류"), basedOn: BY("채소류"), g: 300, label: "1인분", cat: "기타", alias: "닭볶음(닭갈비)" },
+  { name: "제육볶음", gi: G("채소류"), basedOn: BY("채소류"), g: 250, label: "1인분", cat: "기타", alias: "돼지고기볶음" },
+  { name: "불고기", gi: G("채소류"), basedOn: BY("채소류"), g: 250, label: "1인분", cat: "기타", alias: "소고기볶음" },
+  { name: "갈비구이", gi: G("채소류"), basedOn: BY("채소류"), g: 250, label: "1인분", cat: "기타" },
+  { name: "순대", gi: G("감자전분"), basedOn: BY("감자전분"), g: 150, label: "1인분", cat: "기타" },
+  { name: "족발", gi: G("채소류"), basedOn: BY("채소류"), g: 200, label: "1인분", cat: "기타" },
+  { name: "함박스테이크", gi: G("곡류"), basedOn: BY("곡류"), g: 200, label: "1인분", cat: "기타" },
+  { name: "스테이크", gi: G("채소류"), basedOn: BY("채소류"), g: 200, label: "1인분", cat: "기타" },
+
+  // ── 국·찌개 (채소·육수 위주라 탄수화물이 적다) ──
+  { name: "된장찌개", gi: G("채소류"), basedOn: BY("채소류"), g: 400, label: "1인분", cat: "기타" },
+  { name: "김치찌개", gi: G("채소류"), basedOn: BY("채소류"), g: 400, label: "1인분", cat: "기타" },
+  { name: "순두부찌개", gi: G("두류"), basedOn: BY("두류"), g: 400, label: "1인분", cat: "기타" },
+  { name: "부대찌개", gi: G("채소류"), basedOn: BY("채소류"), g: 450, label: "1인분", cat: "기타" },
+  { name: "된장국", gi: G("채소류"), basedOn: BY("채소류"), g: 300, label: "1그릇", cat: "기타" },
+  { name: "미역국", gi: G("채소류"), basedOn: BY("채소류"), g: 300, label: "1그릇", cat: "기타" },
+  { name: "해장국", gi: G("채소류"), basedOn: BY("채소류"), g: 400, label: "1그릇", cat: "기타" },
+  { name: "매운탕", gi: G("채소류"), basedOn: BY("채소류"), g: 400, label: "1그릇", cat: "기타" },
+  { name: "달걀찜", gi: 0, basedOn: "논문상 GI 0 식품군(난류)", g: 150, label: "1인분", cat: "기타" },
+
+  // ── 음료 ──
   { name: "아메리카노", gi: 0, basedOn: "논문상 GI 0 식품군", g: 0, label: "1잔", cat: "음료" },
+  { name: "카페라떼", gi: 31, basedOn: "우유(13010)", g: 300, label: "1잔", cat: "음료", alias: "우유" },
+  { name: "이온음료", gi: 46, basedOn: "이온음료(15012)", g: 500, label: "1병", cat: "음료" },
+  { name: "요구르트(호상)", gi: 24, basedOn: "요구르트, 호상(13029)", g: 100, label: "1개", cat: "음료" },
 ];
 
 // ── GI 0 식품 ───────────────────────────────────────────
@@ -267,8 +341,8 @@ if (!carbIndex) console.log("  식약처 CSV 없음 → 탄수화물 생략");
 const foods = [];
 let matched = 0;
 
-function pushFood({ name, giVal, giCode, giBasedOn, g, label, category }) {
-  const hit = lookupCarb(carbIndex, name, SERVING[name]?.[2]);
+function pushFood({ name, giVal, giCode, giBasedOn, g, label, category, alias }) {
+  const hit = lookupCarb(carbIndex, name, alias || SERVING[name]?.[2]);
   if (giVal === 0) {
     // GI 0 식품(커피 등)은 혈당부하에 기여하지 않으므로 탄수화물도 0으로 둔다.
     foods.push({ name, gi: 0, carbs: 0, serving: label, category, giCode, giSource: "kjn2012", giBasedOn, carbSource: "gi-zero" });
@@ -302,7 +376,7 @@ for (const it of gi.items) {
 }
 for (const c of COMPOSITES) {
   pushFood({
-    name: c.name, giVal: c.gi, giBasedOn: c.basedOn,
+    name: c.name, giVal: c.gi, giBasedOn: c.basedOn, alias: c.alias,
     g: c.g, label: c.label, category: c.cat,
   });
 }
