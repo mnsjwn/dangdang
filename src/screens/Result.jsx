@@ -89,8 +89,9 @@ export function Result({ items, weight, onBack, onStart }) {
         ))}
       </div>
 
+      {/* 확인 시트: 데스크톱에서도 폰 폭 안에만 깔리도록 좌우를 제한한다 */}
       {confirming && picked && (
-        <div style={{ position: "fixed", inset: 0, zIndex: 20, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+        <div style={{ position: "fixed", top: 0, bottom: 0, left: "50%", transform: "translateX(-50%)", width: "min(100%, 430px)", zIndex: 20, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
           <div onClick={() => setConfirming(false)} style={{ position: "absolute", inset: 0, background: "rgba(26,21,18,.42)", animation: "dd-fade .3s ease-out both" }} />
           <div style={{ position: "relative", margin: "0 12px 26px", background: "#fff", borderRadius: 22, padding: "24px 20px 18px", animation: "dd-sheet .3s ease-out both", boxShadow: "0 16px 40px rgba(60,40,30,.28)" }}>
             <div style={{ fontSize: 21, fontWeight: 900, letterSpacing: "-.7px", color: C.ink, textAlign: "center", lineHeight: 1.4 }}>
