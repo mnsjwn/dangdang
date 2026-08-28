@@ -128,14 +128,16 @@ export function Signup({ onBack, onSuccess }) {
           hint="8자 이상, 영문과 숫자를 섞어 주세요."
           hintColor={f.password && !pwOk ? C.coral : C.faint}
         />
+        {/* flex 아이템은 기본 min-width가 auto라 input의 기본 너비 밑으로 안 줄어든다.
+            minWidth: 0 을 줘야 좁은 화면에서 폰 폭을 넘지 않는다. */}
         <div style={{ display: "flex", gap: 10 }}>
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
             <Field label="몸무게 (kg)" inputMode="numeric" value={f.weight} onChange={set("weight")} />
           </div>
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
             <Field label="키 (cm)" inputMode="numeric" value={f.height} onChange={set("height")} />
           </div>
-          <div style={{ width: 88 }}>
+          <div style={{ flex: "0 1 76px", minWidth: 0 }}>
             <Field label="나이" inputMode="numeric" value={f.age} onChange={set("age")} />
           </div>
         </div>

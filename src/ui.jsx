@@ -104,13 +104,16 @@ export function Field({ label, unit, hint, hintColor, borderColor, ...input }) {
         style={{
           display: "flex", alignItems: "center", gap: 10, height: 52, padding: "0 15px",
           borderRadius: 12, border: `1.5px solid ${borderColor || LINE.mint}`, background: C.mint,
+          boxSizing: "border-box", minWidth: 0,
         }}
       >
         <input
           {...input}
+          // size를 줄이지 않으면 input의 기본 폭(약 20자)이 최소 너비로 남는다
+          size={1}
           style={{
-            flex: 1, minWidth: 0, border: "none", outline: "none", background: "transparent",
-            fontSize: 16, fontWeight: 500, color: C.ink,
+            flex: 1, minWidth: 0, width: "100%", border: "none", outline: "none",
+            background: "transparent", fontSize: 16, fontWeight: 500, color: C.ink,
           }}
         />
         {unit && <span style={{ fontSize: 13, fontWeight: 700, color: C.faint }}>{unit}</span>}

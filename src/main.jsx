@@ -24,6 +24,8 @@ function PhoneFrame({ children }) {
           minHeight: "100dvh",
           background: "#fff",
           position: "relative",
+          // 어떤 화면이든 폰 폭 밖으로 새지 않도록
+          overflowX: "hidden",
           // 폰 폭보다 넓은 화면에서만 경계가 보이도록
           boxShadow: "0 0 0 1px rgba(26,21,18,.06), 0 18px 50px rgba(60,40,30,.12)",
         }}
