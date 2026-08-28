@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { C, LINE, screen } from "../theme.js";
 import { Primary, Back, Field, TextLink, Avatar } from "../ui.jsx";
 import * as api from "../lib/api.js";
+import { getOrigin } from "../lib/geo.js";
 
 // ── 로그인 ──────────────────────────────────────────────
 export function Signin({ onBack, onSignup, onSuccess }) {
@@ -93,6 +94,9 @@ export function Signup({ onBack, onSuccess }) {
         return;
       }
       toast.success(`${nick}님, 반가워요!`);
+      // 가입 직후 위치 권한을 미리 물어둔다. 거부해도 기본 위치로 동작하므로
+      // 결과를 기다리거나 확인하지 않는다.
+      getOrigin().catch(() => {});
       onSuccess({ nickname: nick, weight: f.weight, height: f.height, age: f.age });
     } catch (e) {
       toast.error("서버에 연결하지 못했어요.");
@@ -115,6 +119,7 @@ export function Signup({ onBack, onSuccess }) {
       </div>
       <div style={{ marginTop: 9, fontSize: 13, lineHeight: 1.6, color: C.sub2 }}>
         몸무게·키·나이로 얼마나 움직여야 오후 졸음을 막을 수 있는지 계산해요.
+        가까운 산책로를 찾기 위해 위치 권한도 함께 요청해요.
       </div>
 
       <div style={{ marginTop: 26, display: "flex", flexDirection: "column", gap: 16 }}>

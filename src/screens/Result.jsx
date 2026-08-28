@@ -47,7 +47,6 @@ export function Result({ items, weight, onBack, onStart }) {
             <div style={{ fontSize: 42, fontWeight: 900, letterSpacing: "-2px", color: meta.color, lineHeight: 1.1, whiteSpace: "nowrap" }}>
               {meta.label}
             </div>
-            <div style={{ fontSize: 11.5, fontWeight: 700, color: C.faint }}>혈당부하 {gl}</div>
           </div>
         </div>
       </div>

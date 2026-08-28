@@ -19,7 +19,7 @@
     {
       "label": "밥류",
       "gi": 72,
-      "carbs": 55,
+      "carbs": 63,
       "basis": "15개 항목 평균"
     },
     {
@@ -43,7 +43,7 @@
     {
       "label": "과일",
       "gi": 52,
-      "carbs": 21,
+      "carbs": 18,
       "basis": "16개 항목 평균"
     },
     {
@@ -136,7 +136,7 @@
       "carbPer100g": 12.9,
       "carbMatch": {
         "name": "죽",
-        "samples": 206,
+        "samples": 204,
         "exact": true
       }
     },
@@ -200,23 +200,23 @@
       "carbPer100g": 67.5,
       "carbMatch": {
         "name": "시리얼",
-        "samples": 123,
+        "samples": 122,
         "exact": true
       }
     },
     {
       "name": "미숫가루/선식",
       "gi": 56,
-      "carbs": 21,
+      "carbs": 133,
       "serving": "1잔(200g)",
       "category": "밥류",
       "giCode": "1151",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 10.4,
+      "carbPer100g": 66.7,
       "carbMatch": {
-        "name": "미숫가루",
-        "samples": 2,
+        "name": "미숫가루/선식",
+        "samples": 40,
         "exact": true
       }
     },
@@ -312,7 +312,7 @@
       "carbPer100g": 68.3,
       "carbMatch": {
         "name": "국수",
-        "samples": 184,
+        "samples": 176,
         "exact": true
       }
     },
@@ -488,7 +488,7 @@
       "carbPer100g": 35,
       "carbMatch": {
         "name": "케이크",
-        "samples": 1462,
+        "samples": 1458,
         "exact": true
       }
     },
@@ -520,7 +520,7 @@
       "carbPer100g": 61.8,
       "carbMatch": {
         "name": "비스킷/쿠키/크래커",
-        "samples": 1735,
+        "samples": 1729,
         "exact": true
       }
     },
@@ -639,16 +639,16 @@
     {
       "name": "고구마",
       "gi": 63,
-      "carbs": 51,
+      "carbs": 50,
       "serving": "1개(150g)",
       "category": "튀김류",
       "giCode": "2016",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 33.8,
+      "carbPer100g": 33.1,
       "carbMatch": {
         "name": "고구마",
-        "samples": 29,
+        "samples": 24,
         "exact": true
       }
     },
@@ -664,7 +664,7 @@
       "carbPer100g": 86,
       "carbMatch": {
         "name": "당면",
-        "samples": 33,
+        "samples": 31,
         "exact": true
       }
     },
@@ -735,32 +735,32 @@
     {
       "name": "사과",
       "gi": 36,
-      "carbs": 28,
+      "carbs": 27,
       "serving": "1개(200g)",
       "category": "과일",
       "giCode": "8090",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 13.9,
+      "carbPer100g": 13.7,
       "carbMatch": {
         "name": "사과",
-        "samples": 8,
+        "samples": 7,
         "exact": true
       }
     },
     {
       "name": "바나나",
       "gi": 62,
-      "carbs": 59,
+      "carbs": 24,
       "serving": "1개(120g)",
       "category": "과일",
       "giCode": "8063",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 49.3,
+      "carbPer100g": 20,
       "carbMatch": {
         "name": "바나나",
-        "samples": 2,
+        "samples": 1,
         "exact": true
       }
     },
@@ -789,10 +789,10 @@
       "giCode": "8155",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 15.2,
+      "carbPer100g": 15.1,
       "carbMatch": {
         "name": "포도",
-        "samples": 29,
+        "samples": 28,
         "exact": true
       }
     },
@@ -885,10 +885,10 @@
       "giCode": "8036",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 8.3,
+      "carbPer100g": 8.2,
       "carbMatch": {
         "name": "딸기",
-        "samples": 5,
+        "samples": 4,
         "exact": true
       }
     },
@@ -975,16 +975,16 @@
     {
       "name": "대추",
       "gi": 62,
-      "carbs": 15,
+      "carbs": 8,
       "serving": "10알(30g)",
       "category": "과일",
       "giCode": "8032",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 50.1,
+      "carbPer100g": 27.6,
       "carbMatch": {
         "name": "대추",
-        "samples": 2,
+        "samples": 1,
         "exact": true
       }
     },
@@ -1176,7 +1176,7 @@
       "carbPer100g": 100,
       "carbMatch": {
         "name": "설탕",
-        "samples": 31,
+        "samples": 30,
         "exact": true
       }
     },
@@ -1208,7 +1208,7 @@
       "carbPer100g": 48.5,
       "carbMatch": {
         "name": "초콜릿",
-        "samples": 1695,
+        "samples": 1693,
         "exact": true
       }
     },
@@ -1221,10 +1221,10 @@
       "giCode": "3040",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 76.4,
+      "carbPer100g": 76.3,
       "carbMatch": {
         "name": "젤리",
-        "samples": 1178,
+        "samples": 1176,
         "exact": true
       }
     },
@@ -1240,7 +1240,7 @@
       "carbPer100g": 93,
       "carbMatch": {
         "name": "사탕",
-        "samples": 877,
+        "samples": 873,
         "exact": true
       }
     },
@@ -1295,32 +1295,32 @@
     {
       "name": "완두콩",
       "gi": 53,
-      "carbs": 14,
+      "carbs": 12,
       "serving": "1/2컵(60g)",
       "category": "기타",
       "giCode": "4033",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 23.9,
+      "carbPer100g": 20.1,
       "carbMatch": {
         "name": "완두",
-        "samples": 4,
+        "samples": 2,
         "exact": true
       }
     },
     {
       "name": "땅콩",
       "gi": 13,
-      "carbs": 7,
+      "carbs": 6,
       "serving": "한 줌(30g)",
       "category": "기타",
       "giCode": "5014",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 22.7,
+      "carbPer100g": 20.6,
       "carbMatch": {
         "name": "땅콩",
-        "samples": 8,
+        "samples": 2,
         "exact": true
       }
     },
@@ -1333,10 +1333,10 @@
       "giCode": "5028",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 35.1,
+      "carbPer100g": 34.9,
       "carbMatch": {
         "name": "밤",
-        "samples": 10,
+        "samples": 9,
         "exact": true
       }
     },
@@ -1349,26 +1349,26 @@
       "giCode": "5048",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 20.3,
+      "carbPer100g": 20.5,
       "carbMatch": {
         "name": "아몬드",
-        "samples": 2,
+        "samples": 1,
         "exact": true
       }
     },
     {
       "name": "호두",
       "gi": 24,
-      "carbs": 3,
+      "carbs": 4,
       "serving": "한 줌(30g)",
       "category": "기타",
       "giCode": "5077",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 9.8,
+      "carbPer100g": 11.7,
       "carbMatch": {
         "name": "호두",
-        "samples": 2,
+        "samples": 1,
         "exact": true
       }
     },
@@ -1407,16 +1407,16 @@
     {
       "name": "옥수수",
       "gi": 52,
-      "carbs": 49,
+      "carbs": 38,
       "serving": "1개(150g)",
       "category": "기타",
       "giCode": "1253",
       "giSource": "kjn2012",
       "carbSource": "mfds",
-      "carbPer100g": 32.8,
+      "carbPer100g": 25.4,
       "carbMatch": {
         "name": "옥수수",
-        "samples": 48,
+        "samples": 31,
         "exact": true
       }
     },
@@ -1524,6 +1524,416 @@
       "category": "음료",
       "giSource": "kjn2012",
       "giBasedOn": "논문상 GI 0 식품군",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "양상추",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "상추",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "10장(50g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "배추",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "100g(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "양배추",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "100g(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "오이",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1개(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "토마토",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1개(150g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "방울토마토",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "10알(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "브로콜리",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "100g(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "시금치",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(70g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "파프리카",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1개(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "가지",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1개(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "무",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "100g(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "콩나물",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "미나리",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(70g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "부추",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(70g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "샐러드",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(150g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "김치",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(60g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "깍두기",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(60g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "버섯",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "100g(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "김",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "5장(5g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "미역",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1접시(50g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "달걀",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1개(60g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "두부",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1/2모(150g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "닭가슴살",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "100g(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "삼겹살",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1인분(150g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "소고기",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1인분(150g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "돼지고기",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1인분(150g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "닭고기",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1인분(150g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "생선",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1토막(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "고등어",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1토막(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "연어",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1토막(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "새우",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "5마리(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "오징어",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1마리(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "햄",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "2장(50g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "소시지",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "2개(50g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "참치",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1캔(100g)",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "아메리카노",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1잔",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "에스프레소",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1잔",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "물",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1잔",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "녹차",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1잔",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
+      "carbSource": "gi-zero"
+    },
+    {
+      "name": "홍차",
+      "gi": 0,
+      "carbs": 0,
+      "serving": "1잔",
+      "category": "기타",
+      "giSource": "kjn2012-zero",
+      "giBasedOn": "논문상 GI 0 식품군(채소·육류·어패류·난류·해조류 등)",
       "carbSource": "gi-zero"
     }
   ]

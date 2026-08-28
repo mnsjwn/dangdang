@@ -12,8 +12,13 @@ export const MET = {
   stairs: 8.0, // 계단 오르기
 };
 
-/** 활동별 기본 시간(분). 걷기는 GL에 따라 가변, 계단은 10분 고정. */
-export const STAIRS_MINUTES = 10;
+/**
+ * 계단오르기 권장 시간(분).
+ * 계단은 MET 8로 걷기(3.5)보다 강도가 높으므로, 같은 효과를 내는 데 필요한
+ * 시간이 더 짧다. 걷기 시간에 강도 비율을 곱해 산출하되 최소 5분은 둔다.
+ */
+export const stairsMinutes = (gl) =>
+  Math.max(5, Math.round((recMinutes(gl) * MET.walk) / MET.stairs));
 
 /** 단일 항목의 혈당부하(GL) = GI × 탄수화물(g) ÷ 100 */
 export function itemGL(gi, carbs, serv = 1) {
@@ -78,14 +83,17 @@ export function activityOptions(gl, weightKg) {
       dropPercent: dropPercent(walkMin, MET.walk),
       kcal: kcal(walkMin, MET.walk, weightKg),
     },
-    stairs: {
-      kind: "stairs",
-      label: "계단오르기",
-      minutes: STAIRS_MINUTES,
-      met: MET.stairs,
-      dropPercent: dropPercent(STAIRS_MINUTES, MET.stairs),
-      kcal: kcal(STAIRS_MINUTES, MET.stairs, weightKg),
-    },
+    stairs: (() => {
+      const m = stairsMinutes(gl);
+      return {
+        kind: "stairs",
+        label: "계단오르기",
+        minutes: m,
+        met: MET.stairs,
+        dropPercent: dropPercent(m, MET.stairs),
+        kcal: kcal(m, MET.stairs, weightKg),
+      };
+    })(),
   };
 }
 

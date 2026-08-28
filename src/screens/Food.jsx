@@ -156,9 +156,9 @@ export function Food({ items, setItems, onNext, onMy }) {
                   <span style={{ fontSize: 15.5, fontWeight: 700, color: C.ink }}>{it.name}</span>
                   {it.est && <span style={{ fontSize: 10, fontWeight: 700, color: C.faint }}>추정</span>}
                 </div>
-                <div style={{ marginTop: 3, fontSize: 11.5, color: C.sub2 }}>
-                  GI {it.gi} · 탄수 {Math.round(it.carbs * it.serv)}g
-                </div>
+                {it.serving && (
+                  <div style={{ marginTop: 3, fontSize: 11.5, color: C.sub2 }}>{it.serving}</div>
+                )}
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 2, background: C.chip, borderRadius: 10, padding: 3 }}>
                 <div onClick={() => bump(it.name, -0.5)} style={stepBtn}>−</div>

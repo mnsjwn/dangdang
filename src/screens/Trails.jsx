@@ -45,9 +45,16 @@ export function Trails({ onBack }) {
       {origin.fallback && (
         <div style={{ position: "absolute", left: 14, right: 14, top: 122, display: "flex", alignItems: "center", gap: 9, padding: "11px 13px", borderRadius: 12, background: "rgba(26,21,18,.92)", boxShadow: "0 4px 14px rgba(60,40,30,.2)", zIndex: 4 }}>
           <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#FFB9A6", flex: "none" }} />
-          <span style={{ fontSize: 11.5, fontWeight: 600, color: "#F5F0EC", lineHeight: 1.45 }}>
+          <span style={{ flex: 1, fontSize: 11.5, fontWeight: 600, color: "#F5F0EC", lineHeight: 1.45 }}>
             위치 권한이 없어 <span style={{ fontWeight: 900, color: "#fff" }}>{DEFAULT_ORIGIN.label}</span>를 기준으로 보여주고 있어요
           </span>
+          {/* 브라우저는 사용자 조작이 있을 때 권한 창을 안정적으로 띄우므로 버튼으로 다시 요청한다 */}
+          <button
+            onClick={() => getOrigin().then(setOrigin)}
+            style={{ flex: "none", border: "none", borderRadius: 8, padding: "7px 11px", background: C.coral, color: "#fff", fontSize: 11.5, fontWeight: 700, cursor: "pointer" }}
+          >
+            내 위치 쓰기
+          </button>
         </div>
       )}
 
@@ -62,7 +69,6 @@ function KakaoMap({ parks, origin, idx, onPick }) {
   const boxRef = useRef(null);
   const mapRef = useRef(null);
   const overlaysRef = useRef([]);
-  const lineRef = useRef(null);
 
   // 지도 생성 (한 번만)
   useEffect(() => {
@@ -82,7 +88,6 @@ function KakaoMap({ parks, origin, idx, onPick }) {
 
     overlaysRef.current.forEach((o) => o.setMap(null));
     overlaysRef.current = [];
-    if (lineRef.current) lineRef.current.setMap(null);
 
     parks.forEach((p, i) => {
       const on = i === idx;
@@ -116,16 +121,9 @@ function KakaoMap({ parks, origin, idx, onPick }) {
     meOv.setMap(map);
     overlaysRef.current.push(meOv);
 
-    // 선택한 공원까지 직선 연결
+    // 직선을 그리면 건물·하천을 가로지르는 경로처럼 보여 오해를 준다.
+    // 실제 도보 경로는 아래 "카카오맵으로 길 안내"로 넘긴다.
     const sel = parks[idx];
-    lineRef.current = new kakao.maps.Polyline({
-      path: [new kakao.maps.LatLng(origin.lat, origin.lng), new kakao.maps.LatLng(sel.lat, sel.lng)],
-      strokeWeight: 4,
-      strokeColor: C.coral,
-      strokeOpacity: 0.75,
-      strokeStyle: "shortdash",
-    });
-    lineRef.current.setMap(map);
 
     // 내 위치와 선택한 공원이 모두 보이도록 맞춘다
     const bounds = new kakao.maps.LatLngBounds();
@@ -152,13 +150,6 @@ function FallbackMap({ parks, origin, idx, onPick, failed }) {
       <div style={{ position: "absolute", left: 16, bottom: 250, font: "600 10px ui-monospace,Menlo,monospace", color: "#8A9384", letterSpacing: ".04em" }}>
         {failed ? "지도를 불러오지 못했어요 · 좌표 기준 표시" : "지도 불러오는 중…"} — {PARKS_META.source}
       </div>
-
-      <svg width="100%" height="100%" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-        <path
-          d={`M${me.x} ${me.y} L${me.x} ${(me.y + pins[idx].y) / 2} L${pins[idx].x} ${(me.y + pins[idx].y) / 2} L${pins[idx].x} ${pins[idx].y}`}
-          fill="none" stroke={C.coral} strokeWidth="4" strokeDasharray="9 7" strokeLinecap="round" opacity={0.5}
-        />
-      </svg>
 
       {pins.map((p, i) => (
         <div
