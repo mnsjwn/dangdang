@@ -12,6 +12,10 @@ export function Result({ items, weight, onBack, onStart }) {
   const recMin = recMinutes(gl);
   const acts = activityOptions(gl, weight);
 
+  // 게이지 안쪽에 들어갈 수 있는 가로폭은 약 165px뿐이다.
+  // "보통이에요"(5글자)를 42px로 그리면 링을 뚫고 나가므로 글자 수에 맞춰 줄인다.
+  const labelSize = Math.min(42, Math.round(158 / Math.max(3, meta.label.length)));
+
   // 게이지: GL 70을 한 바퀴로 본다 (원 둘레 590.6)
   const gaugeOffset = 590.6 * (1 - Math.min(1, gl / 70));
 
@@ -44,7 +48,7 @@ export function Result({ items, weight, onBack, onStart }) {
           </svg>
           <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2 }}>
             <div style={{ fontSize: 11.5, fontWeight: 700, color: C.faint, letterSpacing: ".04em" }}>식후 졸음 위험</div>
-            <div style={{ fontSize: 42, fontWeight: 900, letterSpacing: "-2px", color: meta.color, lineHeight: 1.1, whiteSpace: "nowrap" }}>
+            <div style={{ fontSize: labelSize, fontWeight: 900, letterSpacing: "-2px", color: meta.color, lineHeight: 1.1, whiteSpace: "nowrap" }}>
               {meta.label}
             </div>
           </div>

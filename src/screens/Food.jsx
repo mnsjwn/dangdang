@@ -58,13 +58,14 @@ export function Food({ items, setItems, onNext, onMy }) {
     <div style={{ ...screen("0"), minHeight: "100dvh" }}>
       <div style={{ padding: "64px 22px 14px" }}>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
-          <div>
+          <div style={{ minWidth: 0 }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: C.faint }}>{todayLabel()}</div>
             <div style={{ marginTop: 3, fontSize: 26, fontWeight: 900, letterSpacing: "-1px", color: C.ink }}>
               오늘 먹은 음식
             </div>
           </div>
-          <div style={{ textAlign: "right" }}>
+          {/* "보통이에요"처럼 긴 라벨이 제목 쪽으로 밀리거나 두 줄로 접히지 않게 고정폭으로 둔다 */}
+          <div style={{ textAlign: "right", flex: "none", whiteSpace: "nowrap", paddingLeft: 10 }}>
             <div style={{ fontSize: 11.5, fontWeight: 700, color: C.faint }}>식후 졸음 위험</div>
             <div style={{ fontSize: 20, fontWeight: 900, color: meta.color, lineHeight: 1.2 }}>{meta.label}</div>
           </div>
