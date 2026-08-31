@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { toast } from "sonner";
 import { C } from "../theme.js";
 import { nearbyParks, projectPins, getOrigin, DEFAULT_ORIGIN, PARKS_META } from "../lib/geo.js";
 import { useKakaoMaps, routeLink } from "../lib/kakao.js";
@@ -50,7 +51,15 @@ export function Trails({ onBack }) {
           </span>
           {/* 브라우저는 사용자 조작이 있을 때 권한 창을 안정적으로 띄우므로 버튼으로 다시 요청한다 */}
           <button
-            onClick={() => getOrigin().then(setOrigin)}
+            onClick={() =>
+              getOrigin().then((o) => {
+                setOrigin(o);
+                // 이미 거부한 사람에게는 브라우저가 권한 창을 다시 띄우지 않는다.
+                // 그대로 두면 버튼이 먹통으로 보이므로 어디서 바꾸는지 알려준다.
+                if (o.denied) toast.error("브라우저 주소창의 자물쇠 아이콘에서 위치 권한을 허용해 주세요.");
+                else if (o.fallback) toast.error("위치를 확인하지 못했어요. 잠시 뒤 다시 눌러주세요.");
+              })
+            }
             style={{ flex: "none", border: "none", borderRadius: 8, padding: "7px 11px", background: C.coral, color: "#fff", fontSize: 11.5, fontWeight: 700, cursor: "pointer" }}
           >
             내 위치 쓰기

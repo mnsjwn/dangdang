@@ -122,7 +122,10 @@ export function getOrigin() {
           label: "현재 위치",
           fallback: false,
         }),
-      () => resolve({ ...DEFAULT_ORIGIN, fallback: true }),
+      (err) =>
+        // code 1 = PERMISSION_DENIED. 한 번 거부하면 브라우저가 다시 묻지 않으므로
+        // 호출한 쪽이 안내 문구를 띄울 수 있게 구분해 둔다.
+        resolve({ ...DEFAULT_ORIGIN, fallback: true, denied: err?.code === 1 }),
       { timeout: 5000, maximumAge: 60000 }
     );
   });

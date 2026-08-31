@@ -24,6 +24,9 @@ export function Signin({ onBack, onSignup, onSuccess }) {
         setErr(true);
         return;
       }
+      // 모바일 브라우저는 사용자 조작에 붙은 요청일 때 권한 창을 확실히 띄운다.
+      // 거부해도 기본 좌표로 동작하므로 결과는 기다리지 않는다.
+      getOrigin().catch(() => {});
       onSuccess(res.profile, keep);
     } catch (e) {
       toast.error("서버에 연결하지 못했어요. 잠시 뒤 다시 시도해 주세요.");
@@ -94,8 +97,6 @@ export function Signup({ onBack, onSuccess }) {
         return;
       }
       toast.success(`${nick}님, 반가워요!`);
-      // 가입 직후 위치 권한을 미리 물어둔다. 거부해도 기본 위치로 동작하므로
-      // 결과를 기다리거나 확인하지 않는다.
       getOrigin().catch(() => {});
       onSuccess({ nickname: nick, weight: f.weight, height: f.height, age: f.age });
     } catch (e) {

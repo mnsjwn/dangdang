@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Splash, Onboard, Login } from "./screens/Intro.jsx";
 import { Signin, Signup, Welcome } from "./screens/Auth.jsx";
@@ -9,7 +9,7 @@ import { My, EditProfile } from "./screens/My.jsx";
 import { Trails } from "./screens/Trails.jsx";
 import { totalGL } from "./lib/engine.js";
 import * as api from "./lib/api.js";
-import { WALKABLE } from "./lib/geo.js";
+import { WALKABLE, getOrigin } from "./lib/geo.js";
 
 const SAVED = "dangdang_profile";
 // 온보딩을 본 적 있는지는 로그인 여부와 별개로 기억한다.
@@ -63,6 +63,16 @@ export default function App() {
   useEffect(() => {
     if (profile?.nickname) loadStamps(profile.nickname);
   }, [profile?.nickname, loadStamps]);
+
+  // 가입·로그인·자동로그인 어느 경로로 들어와도 앱에 들어선 순간 위치 권한을 한 번
+  // 물어둔다. 산책로 화면에서 처음 묻게 두면 그 화면이 뜨는 동안 지도가 멈춰 보인다.
+  // 거부해도 기본 좌표로 동작하므로 결과는 기다리지 않는다.
+  const askedGeo = useRef(false);
+  useEffect(() => {
+    if (!profile?.nickname || askedGeo.current) return;
+    askedGeo.current = true;
+    getOrigin().catch(() => {});
+  }, [profile?.nickname]);
 
   function signedIn(p, keep) {
     setProfile(p);
