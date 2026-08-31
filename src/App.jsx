@@ -12,6 +12,26 @@ import * as api from "./lib/api.js";
 import { WALKABLE } from "./lib/geo.js";
 
 const SAVED = "dangdang_profile";
+// 온보딩을 본 적 있는지는 로그인 여부와 별개로 기억한다.
+// SAVED 하나로 겸하면 '로그인 상태 유지'를 끄거나 로그아웃한 순간
+// 이미 앱을 아는 사람에게 온보딩이 다시 뜬다.
+const SEEN = "dangdang_onboarded";
+
+const seenOnboarding = () => {
+  try {
+    return localStorage.getItem(SEEN) === "1";
+  } catch {
+    return false; // 저장소를 못 읽으면 안전하게 온보딩을 보여준다
+  }
+};
+
+const markOnboarding = () => {
+  try {
+    localStorage.setItem(SEEN, "1");
+  } catch {
+    /* 저장 실패해도 흐름은 그대로 진행한다 */
+  }
+};
 
 export default function App() {
   const [screen, setScreen] = useState("splash");
@@ -53,6 +73,7 @@ export default function App() {
         /* 저장 실패해도 이번 세션은 그대로 쓴다 */
       }
     }
+    markOnboarding(); // 로그인까지 한 사람은 온보딩을 이미 지난 사람이다
     setScreen("welcome");
   }
 
@@ -93,19 +114,20 @@ export default function App() {
       return (
         <Splash
           onDone={() => {
-            // 저장해 둔 계정이 있으면 온보딩을 건너뛰고 바로 홈으로
+            // 저장해 둔 계정이 있으면 바로 홈으로,
+            // 없더라도 온보딩을 본 적 있으면 로그인 화면으로 보낸다
             if (remembered) {
               setProfile(remembered);
               setScreen("welcome");
             } else {
-              setScreen("onboard");
+              setScreen(seenOnboarding() ? "login" : "onboard");
             }
           }}
         />
       );
 
     case "onboard":
-      return <Onboard onFinish={() => setScreen("login")} />;
+      return <Onboard onFinish={() => { markOnboarding(); setScreen("login"); }} />;
 
     case "login":
       return <Login onSignin={() => setScreen("signin")} onSignup={() => setScreen("signup")} />;
